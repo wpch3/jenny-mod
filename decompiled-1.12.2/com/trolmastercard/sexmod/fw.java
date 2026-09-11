@@ -1,0 +1,134 @@
+package com.trolmastercard.sexmod;
+
+import io.netty.buffer.ByteBuf;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import net.minecraftforge.fml.common.network.ByteBufUtils;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+
+public class fw implements IMessage {
+    boolean a = false;
+    String c;
+    List<Integer> d = new ArrayList<>();
+    UUID b;
+
+    public fw() {
+    }
+
+    public fw(String var1, UUID var2) {
+        this.c = var1;
+        this.b = var2;
+    }
+
+    public fw(String var1, UUID var2, List<Integer> var3) {
+        this.c = var1;
+        this.b = var2;
+        this.d = var3;
+    }
+
+    public void fromBytes(ByteBuf var1) {
+        this.c = ByteBufUtils.readUTF8String(var1);
+        this.b = UUID.fromString(ByteBufUtils.readUTF8String(var1));
+        int var2 = var1.readInt();
+        int var3 = 0;
+
+        try {
+            while (var3 < var2) {
+                this.d.add(var1.readInt());
+                var3++;
+            }
+        } catch (RuntimeException var4) {
+            throw a(var4);
+        }
+
+        this.a = true;
+    }
+
+    public void toBytes(ByteBuf var1) {
+        ByteBufUtils.writeUTF8String(var1, this.c);
+        ByteBufUtils.writeUTF8String(var1, this.b.toString());
+        var1.writeInt(this.d.size());
+
+        for (int var3 : this.d) {
+            var1.writeInt(var3);
+        }
+    }
+
+    private static RuntimeException a(RuntimeException var0) {
+        return var0;
+    }
+
+    public static class a implements IMessageHandler<fw, IMessage> {
+        public IMessage a(fw param1, MessageContext param2) {
+            // $VF: Couldn't be decompiled
+            // Please report this to the Vineflower issue tracker, at https://github.com/Vineflower/vineflower/issues with a copy of the class file (if you have the rights to distribute it!)
+            // java.lang.RuntimeException: parsing failure!
+            //   at org.jetbrains.java.decompiler.modules.decompiler.decompose.DomHelper.parseGraph(DomHelper.java:211)
+            //   at org.jetbrains.java.decompiler.main.rels.MethodProcessor.codeToJava(MethodProcessor.java:174)
+            //
+            // Bytecode:
+            // 00: aload 1
+            // 01: getfield com/trolmastercard/sexmod/fw.a Z
+            // 04: ifeq 18
+            // 07: aload 2
+            // 08: getfield net/minecraftforge/fml/common/network/simpleimpl/MessageContext.side Lnet/minecraftforge/fml/relauncher/Side;
+            // 0b: getstatic net/minecraftforge/fml/relauncher/Side.SERVER Lnet/minecraftforge/fml/relauncher/Side;
+            // 0e: if_acmpeq 26
+            // 11: goto 18
+            // 14: invokestatic com/trolmastercard/sexmod/fw$a.a (Ljava/lang/IndexOutOfBoundsException;)Ljava/lang/IndexOutOfBoundsException;
+            // 17: athrow
+            // 18: getstatic java/lang/System.out Ljava/io/PrintStream;
+            // 1b: ldc "received an invalid message @UploadModelString :("
+            // 1d: invokevirtual java/io/PrintStream.println (Ljava/lang/String;)V
+            // 20: aconst_null
+            // 21: areturn
+            // 22: invokestatic com/trolmastercard/sexmod/fw$a.a (Ljava/lang/IndexOutOfBoundsException;)Ljava/lang/IndexOutOfBoundsException;
+            // 25: athrow
+            // 26: invokestatic net/minecraftforge/fml/common/FMLCommonHandler.instance ()Lnet/minecraftforge/fml/common/FMLCommonHandler;
+            // 29: invokevirtual net/minecraftforge/fml/common/FMLCommonHandler.getMinecraftServerInstance ()Lnet/minecraft/server/MinecraftServer;
+            // 2c: aload 0
+            // 2d: aload 1
+            // 2e: aload 2
+            // 2f: invokedynamic run (Lcom/trolmastercard/sexmod/fw$a;Lcom/trolmastercard/sexmod/fw;Lnet/minecraftforge/fml/common/network/simpleimpl/MessageContext;)Ljava/lang/Runnable; bsm=java/lang/invoke/LambdaMetafactory.metafactory (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite; args=[ ()V, com/trolmastercard/sexmod/fw$a.lambda$onMessage$0 (Lcom/trolmastercard/sexmod/fw;Lnet/minecraftforge/fml/common/network/simpleimpl/MessageContext;)V, ()V ]
+            // 34: invokevirtual net/minecraft/server/MinecraftServer.func_152344_a (Ljava/lang/Runnable;)Lcom/google/common/util/concurrent/ListenableFuture;
+            // 37: pop
+            // 38: aconst_null
+            // 39: areturn
+            // try (0 -> 7): 8 java/lang/IndexOutOfBoundsException
+            // try (3 -> 15): 15 java/lang/IndexOutOfBoundsException
+        }
+
+        boolean a(em var1, List<Integer> var2) {
+            ArrayList var3 = var1.D();
+
+            try {
+                int var4 = 0;
+
+                while (true) {
+                    try {
+                        if (var4 >= var3.size()) {
+                            return true;
+                        }
+
+                        if ((Integer)var3.get(var4) <= (Integer)var2.get(var4)) {
+                            return false;
+                        }
+                    } catch (IndexOutOfBoundsException var5) {
+                        throw a(var5);
+                    }
+
+                    var4++;
+                }
+            } catch (IndexOutOfBoundsException var6) {
+                return false;
+            }
+        }
+
+        private static IndexOutOfBoundsException a(IndexOutOfBoundsException var0) {
+            return var0;
+        }
+    }
+}
