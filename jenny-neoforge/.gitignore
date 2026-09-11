@@ -3,9 +3,6 @@
 build/
 out/
 
-# Gradle wrapper jar (bootstrap locally, see BUILD.md)
-gradle/wrapper/gradle-wrapper.jar
-
 # NeoForge/Minecraft runs
 run/
 run-data/

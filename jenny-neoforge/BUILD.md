@@ -22,9 +22,11 @@ chmod +x gradlew
 gradlew.bat build
 ```
 
-> 说明：仓库中没有提交 `gradle/wrapper/gradle-wrapper.jar`（二进制引导文件）。
-> - 若本机已安装 Gradle 8.10+：先执行一次 `gradle wrapper --gradle-version 9.2.1` 生成 wrapper，再用 `./gradlew`。
-> - 若使用 IntelliJ：直接打开工程，IDE 会自动配置 Gradle，无需手动处理 wrapper。
+> 说明：如果 `gradle/wrapper/` 目录下缺 `gradle-wrapper.jar`（`WrapperMain` 报错），补一个即可（版本号与 properties 一致即可，任意新版 jar 都可引导）：
+> ```bat
+> curl -L -o gradle\wrapper\gradle-wrapper.jar https://raw.githubusercontent.com/gradle/gradle/v9.2.1/gradle/wrapper/gradle-wrapper.jar
+> ```
+> 备选：本机装了 Gradle 8.10+ 可跑 `gradle wrapper --gradle-version 9.2.1` 生成；用 IntelliJ 打开工程会自动配置，无需手动处理。
 
 首次构建会下载 Minecraft、NeoForge、Parchment 映射与 GeckoLib，耗时约 5–20 分钟（视网络而定）。
 
