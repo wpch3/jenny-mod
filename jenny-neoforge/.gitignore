@@ -1,0 +1,30 @@
+# Gradle
+.gradle/
+build/
+out/
+
+# Gradle wrapper jar (bootstrap locally, see BUILD.md)
+gradle/wrapper/gradle-wrapper.jar
+
+# NeoForge/Minecraft runs
+run/
+run-data/
+runs/
+
+# Data-generation cache
+src/generated/resources/.cache/
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+bin/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local publish repo
+repo/
