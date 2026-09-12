@@ -225,7 +225,7 @@ public class PlayerModData {
                     .apply(var0, com.trolmastercard.sexmod.server.PlayerModData.a.b::new)
             );
 
-            public a(UUID var1, UUID var2, long var3) {
+            public b(UUID var1, UUID var2, long var3) {
                 this.b = var1;
                 this.c = var2;
                 this.d = var3;
