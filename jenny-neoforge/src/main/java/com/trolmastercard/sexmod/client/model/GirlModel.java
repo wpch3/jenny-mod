@@ -10,6 +10,8 @@ import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.constant.DataTickets;
 import software.bernie.geckolib.model.data.EntityModelData;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ItemStack;
 
 public abstract class GirlModel<T extends com.trolmastercard.sexmod.entity.GirlEntity> extends GeoModelBase<T> implements BoneGroups {
     public static boolean a = true;

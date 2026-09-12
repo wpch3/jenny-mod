@@ -33,7 +33,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 
 @EventBusSubscriber(modid = "sexmod")
 public class PlayerModData {
-    public static boolean a = true;
+    public static boolean ag = true;
     static com.trolmastercard.sexmod.util.BiMap<UUID, UUID> b = new com.trolmastercard.sexmod.util.BiMap<>();
     static HashMap<UUID, Long> c = new HashMap<>();
     static HashSet<UUID> d = new HashSet<>();
@@ -147,7 +147,7 @@ public class PlayerModData {
             a(var2);
         }
 
-        ArrayList var3 = new ArrayList();
+        ArrayList<ServerPlayer> var3 = new ArrayList<>();
 
         for (Entry var5 : b.a()) {
             UUID var6 = (UUID)var5.getKey();
@@ -178,11 +178,11 @@ public class PlayerModData {
     public static class a extends SavedData {
         public static final Codec<com.trolmastercard.sexmod.server.PlayerModData.a> a = RecordCodecBuilder.create(
             var0 -> var0.group(
-                    com.trolmastercard.sexmod.server.PlayerModData.a.a.a.listOf().fieldOf("ownership").forGetter(var0x -> a()),
+                    com.trolmastercard.sexmod.server.PlayerModData.a.b.a.listOf().fieldOf("ownership").forGetter(var0x -> a()),
                     UUIDUtil.CODEC.listOf().fieldOf("mangs").forGetter(var0x -> new ArrayList<>(com.trolmastercard.sexmod.server.PlayerModData.d))
                 )
                 .apply(var0, (var0x, var1) -> {
-                    for (com.trolmastercard.sexmod.server.PlayerModData.a.a var3 : var0x) {
+                    for (com.trolmastercard.sexmod.server.PlayerModData.a.b var3 : var0x) {
                         com.trolmastercard.sexmod.server.PlayerModData.a(var3.b, var3.c);
                         com.trolmastercard.sexmod.server.PlayerModData.c.put(var3.b, var3.d);
                     }
@@ -201,28 +201,28 @@ public class PlayerModData {
             return a.parse(NbtOps.INSTANCE, var0.get("galathOwnership")).result().orElseGet(com.trolmastercard.sexmod.server.PlayerModData.a::new);
         }
 
-        private static List<com.trolmastercard.sexmod.server.PlayerModData.a.a> a() {
+        private static List<com.trolmastercard.sexmod.server.PlayerModData.a.b> a() {
             ArrayList var0 = new ArrayList();
 
             for (Entry var2 : com.trolmastercard.sexmod.server.PlayerModData.b.a()) {
                 Long var3 = com.trolmastercard.sexmod.server.PlayerModData.c.get(var2.getKey());
-                var0.add(new com.trolmastercard.sexmod.server.PlayerModData.a.a((UUID)var2.getKey(), (UUID)var2.getValue(), var3 == null ? 0L : var3));
+                var0.add(new com.trolmastercard.sexmod.server.PlayerModData.a.b((UUID)var2.getKey(), (UUID)var2.getValue(), var3 == null ? 0L : var3));
             }
 
             return var0;
         }
 
-        public static final class a {
+        public static final class b {
             private final UUID b;
             private final UUID c;
             private final long d;
-            static final Codec<com.trolmastercard.sexmod.server.PlayerModData.a.a> a = RecordCodecBuilder.create(
+            static final Codec<com.trolmastercard.sexmod.server.PlayerModData.a.b> a = RecordCodecBuilder.create(
                 var0 -> var0.group(
-                        UUIDUtil.CODEC.fieldOf("master").forGetter(com.trolmastercard.sexmod.server.PlayerModData.a.a::a),
-                        UUIDUtil.CODEC.fieldOf("galath").forGetter(com.trolmastercard.sexmod.server.PlayerModData.a.a::b),
-                        Codec.LONG.fieldOf("lastcumdosage").forGetter(com.trolmastercard.sexmod.server.PlayerModData.a.a::c)
+                        UUIDUtil.CODEC.fieldOf("master").forGetter(com.trolmastercard.sexmod.server.PlayerModData.a.b::a),
+                        UUIDUtil.CODEC.fieldOf("galath").forGetter(com.trolmastercard.sexmod.server.PlayerModData.a.b::b),
+                        Codec.LONG.fieldOf("lastcumdosage").forGetter(com.trolmastercard.sexmod.server.PlayerModData.a.b::c)
                     )
-                    .apply(var0, com.trolmastercard.sexmod.server.PlayerModData.a.a::new)
+                    .apply(var0, com.trolmastercard.sexmod.server.PlayerModData.a.b::new)
             );
 
             public a(UUID var1, UUID var2, long var3) {

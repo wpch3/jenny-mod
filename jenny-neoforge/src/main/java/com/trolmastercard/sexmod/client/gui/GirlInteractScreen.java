@@ -118,7 +118,7 @@ public class GirlInteractScreen extends Screen {
         int[] var2 = new int[]{68, 87, 106, 124, 143, 162};
         SynchedEntityData var3 = this.e.getEntityData();
 
-        for (int var4 = 0; var4 < CharacterSelectScreen.length; var4++) {
+        for (int var4 = 0; var4 < d.length; var4++) {
             ItemStack var5 = (ItemStack)var3.get(d[var4]);
             if (!var5.isEmpty()) {
                 var1.renderItem(var5, 8, var2[var4]);

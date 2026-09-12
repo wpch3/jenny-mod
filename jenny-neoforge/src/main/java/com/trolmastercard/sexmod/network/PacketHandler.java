@@ -70,7 +70,7 @@ public final class PacketHandler {
     }
 
     private static void a(NotifyOwnershipPayload var0, IPayloadContext var1) {
-        var1.enqueueWork(() -> com.trolmastercard.sexmod.server.PlayerModData.a = var0.a());
+        var1.enqueueWork(() -> com.trolmastercard.sexmod.server.PlayerModData.ag = var0.a());
     }
 
     private static void a(NotifyGalathCoinGiftPayload var0, IPayloadContext var1) {
@@ -83,7 +83,7 @@ public final class PacketHandler {
             }
 
             if (var1x != null && com.trolmastercard.sexmod.client.ClientUtils.a(var1x)) {
-                com.trolmastercard.sexmod.server.PlayerModData.a = false;
+                com.trolmastercard.sexmod.server.PlayerModData.ag = false;
             }
 
             UUID var2;

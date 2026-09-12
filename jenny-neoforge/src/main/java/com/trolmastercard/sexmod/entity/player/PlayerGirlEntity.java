@@ -36,7 +36,7 @@ public abstract class PlayerGirlEntity extends com.trolmastercard.sexmod.entity.
 
     protected PlayerGirlEntity(EntityType<? extends PathfinderMob> var1, Level var2) {
         super(var1, var2);
-        PlayerJennyEntity.add(this);
+        i.add(this);
     }
 
     public void b(UUID var1) {
@@ -75,7 +75,7 @@ public abstract class PlayerGirlEntity extends com.trolmastercard.sexmod.entity.
 
     @Nullable
     public static PlayerGirlEntity c(UUID var0) {
-        return PlayerGoblinEntity.get(var0);
+        return h.get(var0);
     }
 
     public boolean isPickable() {
@@ -148,7 +148,7 @@ public abstract class PlayerGirlEntity extends com.trolmastercard.sexmod.entity.
     public static boolean d(UUID var0) {
         s();
 
-        for (Entry var2 : PlayerGoblinEntity.entrySet()) {
+        for (Entry var2 : h.entrySet()) {
             if (var0.equals(var2.getKey())) {
                 return true;
             }
@@ -280,33 +280,33 @@ public abstract class PlayerGirlEntity extends com.trolmastercard.sexmod.entity.
     }
 
     public static void s() {
-        ArrayList var0 = new ArrayList();
+        ArrayList<PlayerGirlEntity> var0 = new ArrayList<>();
 
         for (PlayerGirlEntity var2 : i) {
             if (var2.p() != null) {
-                PlayerGoblinEntity.put(var2.p(), var2);
+                h.put(var2.p(), var2);
                 var0.add(var2);
             }
         }
 
         for (PlayerGirlEntity var4 : var0) {
-            PlayerJennyEntity.remove(var4);
+            i.remove(var4);
         }
 
         t();
     }
 
     static void t() {
-        ArrayList var0 = new ArrayList();
+        ArrayList<UUID> var0 = new ArrayList<>();
 
-        for (Entry var2 : PlayerGoblinEntity.entrySet()) {
+        for (Entry var2 : h.entrySet()) {
             if (((PlayerGirlEntity)var2.getValue()).isRemoved()) {
                 var0.add((UUID)var2.getKey());
             }
         }
 
         for (UUID var4 : var0) {
-            PlayerGoblinEntity.remove(var4);
+            h.remove(var4);
         }
     }
 
@@ -340,7 +340,7 @@ public abstract class PlayerGirlEntity extends com.trolmastercard.sexmod.entity.
             this.entityData.set(g, var2);
         }
 
-        PlayerJennyEntity.add(this);
+        i.add(this);
     }
 
     @Override

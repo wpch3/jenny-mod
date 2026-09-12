@@ -10,6 +10,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import software.bernie.geckolib.animation.AnimationState;
@@ -21,6 +22,10 @@ public class SlimeGirlEntity extends GirlEntity {
     public static final EntityDataAccessor<Integer> b = SynchedEntityData.defineId(SlimeGirlEntity.class, EntityDataSerializers.INT);
     public static final EntityDataAccessor<Float> c = SynchedEntityData.defineId(SlimeGirlEntity.class, EntityDataSerializers.FLOAT);
     public static final EntityDataAccessor<Integer> d = SynchedEntityData.defineId(SlimeGirlEntity.class, EntityDataSerializers.INT);
+    public static final EntityDataAccessor<ItemStack> OUTFIT_HEAD = SynchedEntityData.defineId(SlimeGirlEntity.class, EntityDataSerializers.ITEM_STACK);
+    public static final EntityDataAccessor<ItemStack> OUTFIT_CHEST = SynchedEntityData.defineId(SlimeGirlEntity.class, EntityDataSerializers.ITEM_STACK);
+    public static final EntityDataAccessor<ItemStack> OUTFIT_LEGS = SynchedEntityData.defineId(SlimeGirlEntity.class, EntityDataSerializers.ITEM_STACK);
+    public static final EntityDataAccessor<ItemStack> OUTFIT_FEET = SynchedEntityData.defineId(SlimeGirlEntity.class, EntityDataSerializers.ITEM_STACK);
     int e;
     boolean f;
     boolean g;
@@ -65,6 +70,10 @@ public class SlimeGirlEntity extends GirlEntity {
         var1.define(b, 0);
         var1.define(c, 0.0F);
         var1.define(d, -1);
+        var1.define(OUTFIT_HEAD, ItemStack.EMPTY);
+        var1.define(OUTFIT_CHEST, ItemStack.EMPTY);
+        var1.define(OUTFIT_LEGS, ItemStack.EMPTY);
+        var1.define(OUTFIT_FEET, ItemStack.EMPTY);
     }
 
     @Override

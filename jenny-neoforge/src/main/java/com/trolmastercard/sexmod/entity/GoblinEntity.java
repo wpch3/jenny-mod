@@ -148,7 +148,7 @@ public class GoblinEntity extends VariantGirlEntity implements OwnableNpc {
         com.trolmastercard.sexmod.entity.GoblinColorC var5 = com.trolmastercard.sexmod.entity.GoblinColorC.values()[this.getRandom().nextInt(com.trolmastercard.sexmod.entity.GoblinColorC.values().length)];
         Vec3i var6 = var5.a();
         this.entityData.set(V, new BlockPos(var6.getX(), var6.getY(), var6.getZ()));
-        this.entityData.set(U, AllieEntity.name());
+        this.entityData.set(U, var5.name());
         return super.finalizeSpawn(var1, var2, var3, var4);
     }
 
@@ -722,7 +722,7 @@ public class GoblinEntity extends VariantGirlEntity implements OwnableNpc {
 
                 if (var1 != null) {
                     Vec3 var2 = this.w.subtract(0.5, 0.0, 0.5).subtract(var1);
-                    AABB var3 = this.a(var2, var2.add(BeeEntity.getX(), BeeEntity.getY(), BeeEntity.getZ()));
+                    AABB var3 = this.a(var2, var2.add(b.getX(), b.getY(), b.getZ()));
                     List var4 = this.level().getEntitiesOfClass(Player.class, var3);
                     if (!var4.isEmpty()) {
                         Player var5 = (Player)var4.get(0);

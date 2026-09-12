@@ -73,7 +73,7 @@ public abstract class GirlEntity extends PathfinderMob implements GeoEntity {
     public Vec3 ak;
     public float al;
     public boolean am;
-    private boolean a;
+    private boolean a0;
     HashMap<String, Vec3> an;
     public static final EntityDataAccessor<String> ao = SynchedEntityData.defineId(GirlEntity.class, EntityDataSerializers.STRING);
     public static final EntityDataAccessor<Boolean> ap = SynchedEntityData.defineId(GirlEntity.class, EntityDataSerializers.BOOLEAN);
@@ -225,7 +225,7 @@ public abstract class GirlEntity extends PathfinderMob implements GeoEntity {
         this.ak = Vec3.ZERO;
         this.al = 1.0F;
         this.am = false;
-        this.a = false;
+        this.a0 = false;
         this.an = new HashMap<>();
         this.aE = new HashMap<>();
         this.aF = new ArrayList<>();
@@ -253,7 +253,7 @@ public abstract class GirlEntity extends PathfinderMob implements GeoEntity {
     }
 
     public boolean ao() {
-        return this.a;
+        return this.a0;
     }
 
     public static List<GirlEntity> ap() {

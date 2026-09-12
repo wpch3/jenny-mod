@@ -11,6 +11,10 @@ import net.minecraft.world.level.Level;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.animation.PlayState;
 import software.bernie.geckolib.animation.AnimatableManager.ControllerRegistrar;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.nbt.CompoundTag;
 
 public class PlayerSlimeEntity extends PlayerGirlEntity {
     public static final EntityDataAccessor<ItemStack> OUTFIT_HEAD = SynchedEntityData.defineId(PlayerSlimeEntity.class, EntityDataSerializers.ITEM_STACK);

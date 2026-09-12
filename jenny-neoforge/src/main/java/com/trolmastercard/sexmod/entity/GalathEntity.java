@@ -175,7 +175,6 @@ public class GalathEntity extends GirlEntity implements PlayerRideableJumping {
         return this.aw();
     }
 
-    @Override
     public boolean e() {
         return (Boolean)this.entityData.get(m);
     }
@@ -595,12 +594,12 @@ public class GalathEntity extends GirlEntity implements PlayerRideableJumping {
 
     @Nullable
     Mob b(AABB var1) {
-        List var2 = this.level().getEntitiesOfClass(Monster.class, var1);
+        List<Monster> var2 = this.level().getEntitiesOfClass(Monster.class, var1);
         if (var2.isEmpty()) {
             return null;
         }
 
-        ArrayList var3 = new ArrayList();
+        ArrayList<Monster> var3 = new ArrayList<>();
 
         for (Monster var5 : var2) {
             if (com.trolmastercard.sexmod.util.EntityTargetUtils.a(var5)) {
@@ -888,7 +887,7 @@ public class GalathEntity extends GirlEntity implements PlayerRideableJumping {
             return false;
         }
 
-        ArrayList var4 = new ArrayList();
+        ArrayList<String> var4 = new ArrayList<>();
         var4.add("action.names.cowgirl");
         var4.add("action.names.anal");
         if (this.a(false) != null) {

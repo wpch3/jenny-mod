@@ -33,6 +33,9 @@ JAVA_LANG = {
     "Integer", "Long", "Float", "Double", "Boolean", "Byte", "Short",
     "Character", "Void", "Thread", "Runnable", "Exception", "RuntimeException", "Throwable", "Error",
     "IllegalStateException", "IllegalArgumentException", "StringBuilder",
+    "NumberFormatException", "NullPointerException", "UnsupportedOperationException",
+    "IndexOutOfBoundsException", "ArrayIndexOutOfBoundsException", "StringIndexOutOfBoundsException",
+    "ClassCastException", "ArithmeticException", "ClassNotFoundException", "InterruptedException",
     "FunctionalInterface", "Deprecated", "SuppressWarnings", "Cloneable",
     "Comparable", "Iterable", "Number",
 }
@@ -173,7 +176,7 @@ def main():
                 old_simple = oc2
                 break
         nested_early = set(rx_nested.findall(text))
-        if old_simple and old_simple != cls:
+        if old_simple and old_simple != cls and old_simple not in nested_early:
             indent_rx = r" {4}" if old_simple in nested_early else WS + r"*"
             rx_ctor = re.compile(
                 r"(?m)^" + indent_rx + r"(?:public|private|protected)?" + WS + r"*" + re.escape(old_simple)

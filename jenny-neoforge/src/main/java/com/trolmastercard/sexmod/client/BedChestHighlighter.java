@@ -30,25 +30,25 @@ public final class BedChestHighlighter {
     private static final Set<BlockPos> a = new HashSet<>();
 
     public static boolean a(BlockPos var0) {
-        return BedChestHighlighter.contains(var0);
+        return a.contains(var0);
     }
 
     public static void a(BlockPos var0, boolean var1) {
         if (var1) {
-            BedChestHighlighter.add(var0);
+            a.add(var0);
         } else {
-            BedChestHighlighter.remove(var0);
+            a.remove(var0);
         }
     }
 
     public static void a(Collection<BlockPos> var0) {
-        BedChestHighlighter.addAll(var0);
+        a.addAll(var0);
     }
 
     @SubscribeEvent
     public static void onRenderLevelStage(RenderLevelStageEvent var0) {
         if (var0.getStage() == Stage.AFTER_TRANSLUCENT_BLOCKS) {
-            if (!BedChestHighlighter.isEmpty()) {
+            if (!a.isEmpty()) {
                 Minecraft var1 = Minecraft.getInstance();
                 if (var1.player != null && var1.level != null) {
                     boolean var2 = var1.player.getMainHandItem().getItem() instanceof com.trolmastercard.sexmod.item.KoboldStaffItem

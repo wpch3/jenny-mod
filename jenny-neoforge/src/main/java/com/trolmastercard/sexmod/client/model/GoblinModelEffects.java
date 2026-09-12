@@ -37,7 +37,7 @@ public final class GoblinModelEffects {
             trackHeadWhileSitting(girl, head);
         }
         if (pose == ScenePose.aU) {
-            Player carrier = ownerPlayer(girl);
+            Player carrier = girl.level().getPlayerByUUID(girl.al());
             if (carrier != null && carrier.getUUID().equals(girl.al())) {
                 body.setHidden(charge < 15);
             } else {

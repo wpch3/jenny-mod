@@ -100,7 +100,7 @@ public class KoboldEggEntity extends LivingEntity implements GeoEntity {
                     var8.getEntityData().set(com.trolmastercard.sexmod.entity.GirlEntity.ao, var9.toString());
                 }
 
-                List var10 = com.trolmastercard.sexmod.server.TribeData.d(this.a);
+                List<com.trolmastercard.sexmod.entity.KoboldEntity> var10 = com.trolmastercard.sexmod.server.TribeData.d(this.a);
                 String var11 = null;
 
                 for (com.trolmastercard.sexmod.entity.KoboldEntity var6 : var10) {

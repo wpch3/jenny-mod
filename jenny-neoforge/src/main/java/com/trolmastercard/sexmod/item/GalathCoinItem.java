@@ -56,7 +56,7 @@ public class GalathCoinItem extends Item implements GeoItem {
     }
 
     boolean a(Level var1, Player var2) {
-        return var1.isClientSide() ? !com.trolmastercard.sexmod.server.PlayerModData.a : !com.trolmastercard.sexmod.server.PlayerModData.b(var2.getUUID());
+        return var1.isClientSide() ? !com.trolmastercard.sexmod.server.PlayerModData.ag : !com.trolmastercard.sexmod.server.PlayerModData.b(var2.getUUID());
     }
 
     @SubscribeEvent

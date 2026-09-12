@@ -20,7 +20,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier.Builder;
 import net.minecraft.world.entity.ai.control.MoveControl;
-import net.minecraft.world.entity.ai.control.MoveControl.Operation;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.Goal.Flag;
 import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;

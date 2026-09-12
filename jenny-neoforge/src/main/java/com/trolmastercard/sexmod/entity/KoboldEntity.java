@@ -160,6 +160,8 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
         var1.define(f, "null");
         var1.define(g, false);
         var1.define(h, false);
+        var1.define(HAS_CROWN, false);
+        var1.define(HAS_EGG, false);
     }
 
     @Nullable
@@ -393,7 +395,7 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
                 if (this.aw()) {
                     Player var3 = this.ay();
                     if (var3 != null) {
-                        Collection var4 = com.trolmastercard.sexmod.server.TribeData.j(var2);
+                        Collection<com.trolmastercard.sexmod.server.KoboldDen> var4 = com.trolmastercard.sexmod.server.TribeData.j(var2);
                         if (var4 != null) {
                             for (com.trolmastercard.sexmod.server.KoboldDen var6 : var4) {
                                 if (var6.c(this)) {
@@ -502,7 +504,7 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
 
     void c(UUID var1) {
         if (this.al() == null) {
-            Collection var2 = com.trolmastercard.sexmod.server.TribeData.j(var1);
+            Collection<com.trolmastercard.sexmod.server.KoboldDen> var2 = com.trolmastercard.sexmod.server.TribeData.j(var1);
             if (var2 != null) {
                 com.trolmastercard.sexmod.server.KoboldDen var3 = null;
 
@@ -595,7 +597,7 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
 
     void a(BlockPos var1, UUID var2) {
         BlockPos var3 = null;
-        ArrayList var4 = new ArrayList();
+        ArrayList<BlockPos> var4 = new ArrayList<>();
         BlockPos[] var5 = new BlockPos[]{var1.north(), var1.east(), var1.south(), var1.west()};
 
         for (BlockPos var9 : var5) {
@@ -736,8 +738,8 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
     }
 
     boolean a(UUID var1, com.trolmastercard.sexmod.server.KoboldDen var2) {
-        List var3 = com.trolmastercard.sexmod.server.TribeData.d(var1);
-        Collection var4 = com.trolmastercard.sexmod.server.TribeData.j(var1);
+        List<KoboldEntity> var3 = com.trolmastercard.sexmod.server.TribeData.d(var1);
+        Collection<com.trolmastercard.sexmod.server.KoboldDen> var4 = com.trolmastercard.sexmod.server.TribeData.j(var1);
         KoboldEntity var5 = null;
         Vec3 var6 = new Vec3(var2.b().getX(), var2.b().getY(), var2.b().getZ());
 
@@ -862,7 +864,7 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
     }
 
     void e(UUID var1) {
-        Collection var2 = com.trolmastercard.sexmod.server.TribeData.j(var1);
+        Collection<com.trolmastercard.sexmod.server.KoboldDen> var2 = com.trolmastercard.sexmod.server.TribeData.j(var1);
         if (var2 != null) {
             for (com.trolmastercard.sexmod.server.KoboldDen var4 : var2) {
                 var4.b(this);
@@ -889,7 +891,7 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
             this.noPhysics = true;
             this.setNoGravity(true);
         } else {
-            HashSet var3 = com.trolmastercard.sexmod.server.TribeData.h(var1);
+            HashSet<BlockPos> var3 = com.trolmastercard.sexmod.server.TribeData.h(var1);
             if (var3 != null) {
                 BlockPos var4 = null;
 
@@ -935,7 +937,7 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
             this.u = this.level().getBlockState(var3.offset(0, -1, 0));
             this.v = this.level().getBlockState(var3);
             this.level().setBlockAndUpdate(var3.offset(0, -1, 0), Blocks.NETHERRACK.defaultBlockState());
-            this.level().setBlockAndUpdate(var3, ((com.trolmastercard.sexmod.EyeAndKoboldColor.a)com.trolmastercard.sexmod.registry.ModBlocks.b.get()).defaultBlockState());
+            this.level().setBlockAndUpdate(var3, ((com.trolmastercard.sexmod.block.ModFireBlock)com.trolmastercard.sexmod.registry.ModBlocks.b.get()).defaultBlockState());
             com.trolmastercard.sexmod.server.TribeData.d(var1, var3);
             var2 = var3;
         }
@@ -987,7 +989,7 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
     }
 
     void i(UUID var1) {
-        Collection var2 = com.trolmastercard.sexmod.server.TribeData.j(var1);
+        Collection<com.trolmastercard.sexmod.server.KoboldDen> var2 = com.trolmastercard.sexmod.server.TribeData.j(var1);
         if (var2 != null) {
             for (com.trolmastercard.sexmod.server.KoboldDen var4 : var2) {
                 var4.f();
@@ -1027,7 +1029,7 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
             com.trolmastercard.sexmod.server.TribeData.e(var1, (KoboldEntity)null);
             this.c(var1);
         } else {
-            Collection var2 = com.trolmastercard.sexmod.server.TribeData.j(var1);
+            Collection<com.trolmastercard.sexmod.server.KoboldDen> var2 = com.trolmastercard.sexmod.server.TribeData.j(var1);
             if (var2 != null) {
                 if (this.x) {
                     this.z = null;
@@ -1191,7 +1193,7 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
     }
 
     boolean b(UUID var1, boolean var2) {
-        HashSet var3 = com.trolmastercard.sexmod.server.TribeData.i(var1);
+        HashSet<BlockPos> var3 = com.trolmastercard.sexmod.server.TribeData.i(var1);
         if (var3 == null) {
             return false;
         }
@@ -1341,9 +1343,9 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
     }
 
     BlockPos a(com.trolmastercard.sexmod.server.KoboldDen var1, UUID var2) {
-        HashSet var3 = var1.d();
+        HashSet<BlockPos> var3 = var1.d();
         Direction var4 = var1.a();
-        ArrayList var5 = new ArrayList();
+        ArrayList<BlockPos> var5 = new ArrayList<>();
         Integer var6 = null;
         if (var3.isEmpty()) {
             return null;
@@ -1377,7 +1379,7 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
             }
         }
 
-        ArrayList var15 = new ArrayList();
+        ArrayList<BlockPos> var15 = new ArrayList<>();
         if (var6 != null) {
             for (BlockPos var9 : var5) {
                 boolean var10 = var4 != Direction.NORTH && var4 != Direction.SOUTH ? var9.getX() == var6 : var9.getZ() == var6;
@@ -1391,7 +1393,7 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
             return null;
         }
 
-        ArrayList var17 = new ArrayList();
+        ArrayList<BlockPos> var17 = new ArrayList<>();
         BlockPos var18 = var1.b();
         if (var4.getAxis() == Axis.Z) {
             BlockPos var19 = new BlockPos(var18.getX(), var18.getY(), ((BlockPos)var15.get(0)).getZ());
@@ -1514,7 +1516,7 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
 
         ArrayList var5 = new ArrayList();
         ArrayList var6 = new ArrayList();
-        ArrayList var7 = new ArrayList();
+        ArrayList<BlockPos> var7 = new ArrayList<>();
         int var8 = var3 != Direction.SOUTH && var3 != Direction.WEST ? 1 : -1;
         if (var3.getAxis() == Axis.Z) {
             BlockPos var9 = new BlockPos(var4.getX(), var4.getY(), ((BlockPos)var1.get(0)).getZ());
@@ -2111,19 +2113,6 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
     }
 
     public int getMaxStackSize() {
-        return 64;
-    }
-
-    public void setChanged() {
-    }
-
-    public boolean stillValid(Player var1) {
-        return true;
-    }
-
-    public void clearContent() {
-    }
-public int getMaxStackSize() {
         return 64;
     }
 

@@ -29,7 +29,7 @@ public enum GalathBehavior {
             if (var3 != null) {
                 BlockPos var4 = var3.blockPosition();
                 ArrayList var5 = new ArrayList();
-                HashMap var6 = new HashMap();
+                HashMap<BlockPos, Integer> var6 = new HashMap<>();
                 int var7 = 0;
                 boolean var8 = !var1.isEmptyBlock(var2.below());
 
@@ -89,7 +89,7 @@ public enum GalathBehavior {
                 }
 
                 if (!var6.isEmpty()) {
-                    ArrayList var20 = new ArrayList(var6.entrySet());
+                    ArrayList<Entry<BlockPos, Integer>> var20 = new ArrayList<>(var6.entrySet());
                     var20.sort((var0x, var1x) -> ((Integer)var1x.getValue()).compareTo((Integer)var0x.getValue()));
                     var0.q = Vec3.atLowerCornerOf((Vec3i)((Entry)var20.get(com.trolmastercard.sexmod.util.MiscUtils.a(var20.size() - 1))).getKey());
                 } else if (var5.isEmpty()) {

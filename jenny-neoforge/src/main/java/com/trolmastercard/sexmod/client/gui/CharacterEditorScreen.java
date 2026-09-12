@@ -37,7 +37,7 @@ public class CharacterEditorScreen extends Screen {
     }
 
     protected void init() {
-        HashMap var1 = com.trolmastercard.sexmod.client.CustomModelLoader.a(this.a);
+        HashMap<com.trolmastercard.sexmod.client.gui.EquipmentSlotType, List<String>> var1 = com.trolmastercard.sexmod.client.CustomModelLoader.a(this.a);
         int var2 = 0;
         int var3 = this.height - 52 - 24;
 

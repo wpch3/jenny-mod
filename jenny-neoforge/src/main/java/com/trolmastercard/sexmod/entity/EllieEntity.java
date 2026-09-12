@@ -54,7 +54,6 @@ public class EllieEntity extends HumanoidGirlEntity implements Triggerable {
         return "Ellie";
     }
 
-    @Override
     boolean e() {
         return this.ao() ? false : this.level().getBlockState(this.blockPosition().offset(0, 2, 0)).getBlock() != Blocks.AIR;
     }

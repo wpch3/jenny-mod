@@ -16,12 +16,12 @@ public final class GalathChargeWatcher {
     public static void onClientTick(Post var0) {
         Minecraft var1 = Minecraft.getInstance();
         if (var1.level == null) {
-            BedChestHighlighter.clear();
+            a.clear();
         } else {
             for (Entity var3 : var1.level.entitiesForRendering()) {
                 if (var3 instanceof com.trolmastercard.sexmod.entity.GalathEntity var4) {
                     boolean var5 = var4.e();
-                    Boolean var6 = BedChestHighlighter.put(var4, var5);
+                    Boolean var6 = a.put(var4, var5);
                     if (var5 && var6 != null && !var6) {
                         ClientUtils.b(var4);
                     }
