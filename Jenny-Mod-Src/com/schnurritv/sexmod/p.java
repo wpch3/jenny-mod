@@ -1,0 +1,123 @@
+package com.schnurritv.sexmod;
+
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.entity.Entity;
+
+public class P extends ModelBase implements p {
+   private final ModelRenderer a;
+
+   public P() {
+      // $VF: Couldn't be decompiled
+      // Please report this to the Vineflower issue tracker, at https://github.com/Vineflower/vineflower/issues with a copy of the class file (if you have the rights to distribute it!)
+      // java.lang.StackOverflowError
+      //   at java.base/java.io.ByteArrayInputStream.read(ByteArrayInputStream.java:175)
+      //   at java.base/java.io.DataInputStream.readFully(DataInputStream.java:208)
+      //   at java.base/java.io.DataInputStream.readUnsignedShort(DataInputStream.java:341)
+      //   at org.jetbrains.java.decompiler.struct.StructMember.readAttributes(StructMember.java:59)
+      //   at org.jetbrains.java.decompiler.struct.StructMember.readAttributes(StructMember.java:55)
+      //   at org.jetbrains.java.decompiler.struct.attr.StructCodeAttribute.initContent(StructCodeAttribute.java:54)
+      //   at org.jetbrains.java.decompiler.struct.StructMember.readAttributes(StructMember.java:72)
+      //   at org.jetbrains.java.decompiler.struct.StructMethod.create(StructMethod.java:44)
+      //   at org.jetbrains.java.decompiler.struct.StructClass.create(StructClass.java:86)
+      //   at org.jetbrains.java.decompiler.struct.ContextUnit.tryLoadClass(ContextUnit.java:102)
+      //   at org.jetbrains.java.decompiler.struct.StructContext.tryLoadClass(StructContext.java:110)
+      //   at org.jetbrains.java.decompiler.struct.StructContext.lambda$getClass$0(StructContext.java:81)
+      //
+      // Bytecode:
+      // 00: aload 0
+      // 01: invokespecial net/minecraft/client/model/ModelBase.<init> ()V
+      // 04: aload 0
+      // 05: bipush 16
+      // 07: putfield com/schnurritv/sexmod/P.field_78090_t I
+      // 0a: aload 0
+      // 0b: bipush 16
+      // 0d: putfield com/schnurritv/sexmod/P.field_78089_u I
+      // 10: aload 0
+      // 11: new net/minecraft/client/model/ModelRenderer
+      // 14: dup
+      // 15: aload 0
+      // 16: invokespecial net/minecraft/client/model/ModelRenderer.<init> (Lnet/minecraft/client/model/ModelBase;)V
+      // 19: putfield com/schnurritv/sexmod/P.a Lnet/minecraft/client/model/ModelRenderer;
+      // 1c: aload 0
+      // 1d: getfield com/schnurritv/sexmod/P.a Lnet/minecraft/client/model/ModelRenderer;
+      // 20: ldc -5.0
+      // 22: ldc 2.5
+      // 24: fconst_0
+      // 25: invokevirtual net/minecraft/client/model/ModelRenderer.func_78793_a (FFF)V
+      // 28: aload 0
+      // 29: getfield com/schnurritv/sexmod/P.a Lnet/minecraft/client/model/ModelRenderer;
+      // 2c: getfield net/minecraft/client/model/ModelRenderer.field_78804_l Ljava/util/List;
+      // 2f: new net/minecraft/client/model/ModelBox
+      // 32: dup
+      // 33: aload 0
+      // 34: getfield com/schnurritv/sexmod/P.a Lnet/minecraft/client/model/ModelRenderer;
+      // 37: bipush 0
+      // 38: bipush 0
+      // 39: ldc -2.0
+      // 3b: ldc -6.0
+      // 3d: fconst_0
+      // 3e: bipush 2
+      // 3f: bipush 6
+      // 41: bipush 2
+      // 42: fconst_0
+      // 43: bipush 0
+      // 44: invokespecial net/minecraft/client/model/ModelBox.<init> (Lnet/minecraft/client/model/ModelRenderer;IIFFFIIIFZ)V
+      // 47: invokeinterface java/util/List.add (Ljava/lang/Object;)Z 2
+      // 4c: pop
+      // 4d: return
+   }
+
+   @Override
+   public void func_78088_a(Entity var1, float var2, float var3, float var4, float var5, float var6, float var7) {
+      // $VF: Couldn't be decompiled
+      // Please report this to the Vineflower issue tracker, at https://github.com/Vineflower/vineflower/issues with a copy of the class file (if you have the rights to distribute it!)
+      // java.lang.StackOverflowError
+      //   at java.base/java.io.ByteArrayInputStream.read(ByteArrayInputStream.java:175)
+      //   at java.base/java.io.DataInputStream.readFully(DataInputStream.java:208)
+      //   at java.base/java.io.DataInputStream.readUnsignedShort(DataInputStream.java:341)
+      //   at org.jetbrains.java.decompiler.struct.attr.StructCodeAttribute.initContent(StructCodeAttribute.java:41)
+      //   at org.jetbrains.java.decompiler.struct.StructMember.readAttributes(StructMember.java:72)
+      //   at org.jetbrains.java.decompiler.struct.StructMethod.create(StructMethod.java:44)
+      //   at org.jetbrains.java.decompiler.struct.StructClass.create(StructClass.java:86)
+      //   at org.jetbrains.java.decompiler.struct.ContextUnit.tryLoadClass(ContextUnit.java:102)
+      //   at org.jetbrains.java.decompiler.struct.StructContext.tryLoadClass(StructContext.java:110)
+      //   at org.jetbrains.java.decompiler.struct.StructContext.lambda$getClass$0(StructContext.java:81)
+      //
+      // Bytecode:
+      // 0: aload 0
+      // 1: getfield com/schnurritv/sexmod/P.a Lnet/minecraft/client/model/ModelRenderer;
+      // 4: fload 7
+      // 6: invokevirtual net/minecraft/client/model/ModelRenderer.func_78785_a (F)V
+      // 9: return
+   }
+
+   @Override
+   public void a(ModelRenderer var1, float var2, float var3, float var4) {
+      var1.field_78795_f = var2;
+      var1.field_78796_g = var3;
+      var1.field_78808_h = var4;
+   }
+
+   @Override
+   public ModelRenderer a() {
+      // $VF: Couldn't be decompiled
+      // Please report this to the Vineflower issue tracker, at https://github.com/Vineflower/vineflower/issues with a copy of the class file (if you have the rights to distribute it!)
+      // java.lang.StackOverflowError
+      //   at java.base/java.io.ByteArrayInputStream.read(ByteArrayInputStream.java:175)
+      //   at java.base/java.io.DataInputStream.readFully(DataInputStream.java:208)
+      //   at java.base/java.io.DataInputStream.readUnsignedShort(DataInputStream.java:341)
+      //   at org.jetbrains.java.decompiler.struct.attr.StructCodeAttribute.initContent(StructCodeAttribute.java:41)
+      //   at org.jetbrains.java.decompiler.struct.StructMember.readAttributes(StructMember.java:72)
+      //   at org.jetbrains.java.decompiler.struct.StructMethod.create(StructMethod.java:44)
+      //   at org.jetbrains.java.decompiler.struct.StructClass.create(StructClass.java:86)
+      //   at org.jetbrains.java.decompiler.struct.ContextUnit.tryLoadClass(ContextUnit.java:102)
+      //   at org.jetbrains.java.decompiler.struct.StructContext.tryLoadClass(StructContext.java:110)
+      //   at org.jetbrains.java.decompiler.struct.StructContext.lambda$getClass$0(StructContext.java:81)
+      //
+      // Bytecode:
+      // 0: aload 0
+      // 1: getfield com/schnurritv/sexmod/P.a Lnet/minecraft/client/model/ModelRenderer;
+      // 4: areturn
+   }
+}
