@@ -1,1 +1,2 @@
 jenny-neoforge/latest.log filter=lfs diff=lfs merge=lfs -text
+latest.log filter=lfs diff=lfs merge=lfs -text
