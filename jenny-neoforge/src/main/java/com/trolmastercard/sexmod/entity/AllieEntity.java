@@ -258,6 +258,8 @@ public class AllieEntity extends GirlEntity {
                 break;
             case "action":
                 switch (this.ai()) {
+                    case a:
+                        return PlayState.STOP;
                     case ad:
                         this.a("animation.allie.summon", false, var1);
                         break;

@@ -339,7 +339,7 @@ public class JennyEntity extends HumanoidGirlEntity implements Triggerable {
                     this.a("animation.jenny.sit", true, var1);
                 } else if (this.isPassenger()) {
                     this.a("animation.jenny.sit", true, var1);
-                } else {
+                } else if (Math.abs(this.xOld - this.getX()) + Math.abs(this.zOld - this.getZ()) > 0.0) {
                     switch (this.ag()) {
                         case c:
                             this.a("animation.jenny.run", true, var1);
@@ -353,10 +353,14 @@ public class JennyEntity extends HumanoidGirlEntity implements Triggerable {
                         default:
                             this.a("animation.jenny.idle", true, var1);
                     }
+                } else {
+                    this.a("animation.jenny.idle", true, var1);
                 }
                 break;
             case "action":
                 switch (this.ai()) {
+                    case a:
+                        return PlayState.STOP;
                     case b:
                         this.a("animation.jenny.blowjobintro", true, var1);
                         break;

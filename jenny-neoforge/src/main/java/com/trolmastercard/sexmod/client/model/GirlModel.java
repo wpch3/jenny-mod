@@ -93,37 +93,80 @@ public abstract class GirlModel<T extends com.trolmastercard.sexmod.entity.GirlE
         }
         this.a(var1, var5, var4);
         this.applyOutfitVisibility(var1, var5);
-        this.b(var1, var5, var4);
+
     }
 
 
-    protected static final String[] STUCK_BONES_BASE = new String[] {"neck", "footR", "footL", "legL2", "legR2", "torso", "hip"};
-    private static final String[] STUCK_BONES_EXT = new String[] {"head", "shinR", "shinL", "upperBody", "chest", "body"};
+    private static final String[] STUCK_BONES_FULL = new String[] {"neck", "footR", "footL", "legL2", "legR2", "torso", "hip", "head", "shinR", "shinL", "upperBody", "chest", "body"};
+    private static final String[] STUCK_BONES_NO_HIP_SHIN = new String[] {"neck", "footR", "footL", "legL2", "legR2", "torso", "head", "upperBody", "chest", "body"};
+    private static final String[] STUCK_BONES_NO_HEAD_SHIN = new String[] {"neck", "footR", "footL", "legL2", "legR2", "torso", "hip", "upperBody", "chest", "body"};
+    private static final String[] STUCK_BONES_NARROW = new String[] {"neck", "footR", "footL", "legL2", "legR2", "torso", "hip", "chest", "body"};
+    private static final String[] STUCK_BONES_NO_HEAD = new String[] {"neck", "footR", "footL", "legL2", "legR2", "torso", "hip", "shinR", "shinL", "upperBody", "chest", "body"};
+    private static final String[] STUCK_BONES_BEE = new String[] {"neck", "footR", "footL", "legL2", "legR2", "torso", "hip"};
 
     /**
-     * Bone names zeroed by resetStuckBones. Bee overrides to base-only since
-     * her hunched body/head/shins carry static rotations by design.
+     * Per-girl stuck-bone list, keyed by animation path prefix (covers player
+     * doubles automatically since they share the girl's animation file).
+     * Each list holds only bones that girl's idle/walk/fastwalk never rotate,
+     * so zeroing them cannot fight authored locomotion. Verified against the
+     * shipped animation data; bee keeps base-only (hunched statics by design).
      */
-    protected String[] stuckBoneNames() {
-        String[] all = new String[STUCK_BONES_BASE.length + STUCK_BONES_EXT.length];
-        System.arraycopy(STUCK_BONES_BASE, 0, all, 0, STUCK_BONES_BASE.length);
-        System.arraycopy(STUCK_BONES_EXT, 0, all, STUCK_BONES_BASE.length, STUCK_BONES_EXT.length);
-        return all;
+    protected String[] stuckBoneNames(T girl) {
+        String path = this.a(girl).getPath();
+        String name = path.contains("/") ? path.substring(0, path.indexOf('/')) : path;
+        switch (name) {
+            case "jenny":
+            case "ellie":
+                return STUCK_BONES_NO_HIP_SHIN;
+            case "bia":
+            case "cat":
+                return STUCK_BONES_NO_HEAD_SHIN;
+            case "kobold":
+            case "manglelie":
+            case "galath":
+            case "slime":
+                return STUCK_BONES_NARROW;
+            case "goblin":
+                return STUCK_BONES_NO_HEAD;
+            case "bee":
+                return STUCK_BONES_BEE;
+            default:
+                return STUCK_BONES_FULL;
+        }
     }
 
     /**
-     * Zeroes structural bones every frame while idle/walking (pose a, on
-     * ground). Scene animations rotate the spine/head/shins but every
-     * idle/walk loop is authored all-zero and nothing ever resets bones, so
-     * finished scenes (or poses leaking through Geckolib's shared baked
-     * bones) leave girls tilted. Only bones verified zero-static are touched,
-     * so this is lossless; runs before head-tracking and the walk below.
+     * Zeroes undriven structural bones every frame while idle/walking (pose a,
+     * on ground). Scene animations rotate the spine/head but idle/walk loops
+     * never touch those bones, so finished scenes leave girls tilted; this
+     * restores the bone-reset behavior Geckolib 3 had and 4 dropped. Skipped
+     * while authored locomotion with spine data plays (see below).
      */
     private void resetStuckBones(T girl, AnimationProcessor<T> processor) {
         if (girl.ai() == null || girl.ai() != com.trolmastercard.sexmod.entity.ScenePose.a || girl.isPassenger() || !girl.onGround()) {
             return;
         }
-        for (String name : this.stuckBoneNames()) {
+        if (girl.ag() == com.trolmastercard.sexmod.entity.GirlEntity.a.c) {
+            return;
+        }
+        double motion = Math.abs(girl.getX() - girl.xOld) + Math.abs(girl.getZ() - girl.zOld);
+        boolean moving = motion > 0.001;
+        if (girl instanceof com.trolmastercard.sexmod.entity.KoboldEntity kobold
+                && (kobold.w() || (Boolean) girl.getEntityData().get(com.trolmastercard.sexmod.entity.KoboldEntity.d))) {
+            return;
+        }
+        if (girl instanceof com.trolmastercard.sexmod.entity.GoblinEntity && moving) {
+            return;
+        }
+        if (girl instanceof com.trolmastercard.sexmod.entity.ManglelieEntity && moving
+                && (Boolean) girl.getEntityData().get(com.trolmastercard.sexmod.entity.ManglelieEntity.e)) {
+            return;
+        }
+        if (girl instanceof com.trolmastercard.sexmod.entity.GalathEntity && moving
+                && (Boolean) girl.getEntityData().get(com.trolmastercard.sexmod.entity.GalathEntity.o)) {
+            return;
+        }
+        for (String name : this.stuckBoneNames(girl)) {
             GeoBone bone = processor.getBone(name);
             if (bone == null) {
                 continue;
@@ -131,53 +174,6 @@ public abstract class GirlModel<T extends com.trolmastercard.sexmod.entity.GirlE
             bone.setRotX(0.0F);
             bone.setRotY(0.0F);
             bone.setRotZ(0.0F);
-        }
-    }
-
-    private void b(T var1, AnimationProcessor<T> var2, AnimationState<T> var3) {
-        if (var1.ai() == null || var1.ai() != com.trolmastercard.sexmod.entity.ScenePose.a || var1.isPassenger() || !var1.onGround()) {
-            return;
-        }
-
-        if (var1 instanceof com.trolmastercard.sexmod.entity.player.PlayerGirlEntity var4) {
-            net.minecraft.world.entity.player.Player var5 = var4.q();
-            com.trolmastercard.sexmod.entity.GirlEntity var6 = var5 == null ? null : com.trolmastercard.sexmod.entity.GirlEntity.d(var5);
-            if (var6 != null && var6.ai() != null && var6.ai().cp) {
-                return;
-            }
-        }
-
-        double var7 = Math.abs(var1.getX() - var1.xOld) + Math.abs(var1.getZ() - var1.zOld);
-        if (var7 <= 0.001) {
-            return;
-        }
-
-        float var8 = var1.walkAnimation.position();
-        float var9 = Math.min(var1.walkAnimation.speed(), 1.0F);
-        if (var9 <= 0.01F) {
-            return;
-        }
-
-        float var10 = var8 * 0.6662F;
-        float var11 = var9 * 0.9F;
-        GeoBone var12 = var2.getBone("legR");
-        if (var12 != null) {
-            var12.setRotX((float)Math.cos(var10) * var11);
-        }
-
-        GeoBone var13 = var2.getBone("legL");
-        if (var13 != null) {
-            var13.setRotX((float)Math.cos(var10 + 3.1415927F) * var11);
-        }
-
-        GeoBone var14 = var2.getBone("armR");
-        if (var14 != null) {
-            var14.setRotX((float)Math.cos(var10 + 3.1415927F) * var11 * 0.7F);
-        }
-
-        GeoBone var15 = var2.getBone("armL");
-        if (var15 != null) {
-            var15.setRotX((float)Math.cos(var10) * var11 * 0.7F);
         }
     }
 

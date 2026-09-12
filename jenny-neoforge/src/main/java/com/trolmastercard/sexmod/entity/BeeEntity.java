@@ -269,6 +269,8 @@ public class BeeEntity extends ContainerGirlEntity {
                 break;
             case "action":
                 switch (this.ai()) {
+                    case a:
+                        return PlayState.STOP;
                     case ar:
                         this.a("animation.bee.sex_start", false, var1);
                         break;

@@ -12,11 +12,6 @@ public class BeeModel extends GirlModel<BeeEntity> {
     }
 
     @Override
-    protected String[] stuckBoneNames() {
-        return STUCK_BONES_BASE;
-    }
-
-    @Override
     protected ResourceLocation[] i() {
         return new ResourceLocation[]{ResourceLocation.fromNamespaceAndPath("sexmod", "bee/bee"), ResourceLocation.fromNamespaceAndPath("sexmod", "bee/armored")};
     }

@@ -504,7 +504,7 @@ public class EllieEntity extends HumanoidGirlEntity implements Triggerable {
                     this.a("animation.ellie.sit", true, var1);
                 } else if (this.isPassenger()) {
                     this.a("animation.ellie.sit", true, var1);
-                } else {
+                } else if (Math.abs(this.xOld - this.getX()) + Math.abs(this.zOld - this.getZ()) > 0.0) {
                     switch (this.ag()) {
                         case c:
                             this.a("animation.ellie.run", true, var1);
@@ -518,10 +518,14 @@ public class EllieEntity extends HumanoidGirlEntity implements Triggerable {
                         default:
                             this.a("animation.ellie.idle", true, var1);
                     }
+                } else {
+                    this.a("animation.ellie.idle", true, var1);
                 }
                 break;
             case "action":
                 switch (this.ai()) {
+                    case a:
+                        return PlayState.STOP;
                     case n:
                         this.a("animation.ellie.strip", true, var1);
                         break;

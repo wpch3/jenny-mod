@@ -560,6 +560,8 @@ public class ManglelieEntity extends GirlEntity implements Triggerable {
                 return PlayState.CONTINUE;
             case "action":
                 switch (this.ai()) {
+                    case a:
+                        return PlayState.STOP;
                     case aQ:
                         this.a("animation.manglelie.running", true, var1);
                         break;

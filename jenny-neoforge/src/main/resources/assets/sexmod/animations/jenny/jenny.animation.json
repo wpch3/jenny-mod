@@ -24970,6 +24970,178 @@
 					"effect": "doggyslowMSG2"
 				}
 			}
+		},
+		"animation.ellie.missionary_slow": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [
+							-90,
+							180,
+							0
+						]
+					},
+					"position": {
+						"vector": [
+							0,
+							10,
+							11
+						]
+					}
+				},
+				"legL": {
+					"rotation": {
+						"vector": [
+							-134.95673,
+							-44.79731,
+							22.81241
+						]
+					}
+				},
+				"shinL": {
+					"rotation": {
+						"vector": [
+							47.5,
+							0,
+							0
+						]
+					}
+				},
+				"legR": {
+					"rotation": {
+						"vector": [
+							-67.98358,
+							28.77443,
+							47.5622
+						]
+					}
+				},
+				"shinR": {
+					"rotation": {
+						"vector": [
+							55,
+							0,
+							0
+						]
+					}
+				},
+				"upperBody": {
+					"rotation": {
+						"vector": [
+							10,
+							0,
+							0
+						]
+					}
+				},
+				"turnable": {
+					"rotation": {
+						"vector": [
+							0,
+							0,
+							-37.5
+						]
+					}
+				},
+				"torso": {
+					"rotation": {
+						"vector": [
+							12.5,
+							0,
+							0
+						]
+					}
+				},
+				"armR": {
+					"rotation": {
+						"vector": [
+							105.69284,
+							-16.88547,
+							-4.6653
+						]
+					}
+				},
+				"lowerArmR": {
+					"rotation": {
+						"vector": [
+							-125,
+							0,
+							0
+						]
+					}
+				},
+				"armL": {
+					"rotation": {
+						"vector": [
+							29.40842,
+							6.21271,
+							-10.86815
+						]
+					}
+				},
+				"lowerArmL": {
+					"rotation": {
+						"vector": [
+							-37.5,
+							0,
+							0
+						]
+					}
+				},
+				"head": {
+					"rotation": {
+						"vector": [
+							25,
+							0,
+							0
+						]
+					}
+				},
+				"steve": {
+					"rotation": {
+						"vector": [
+							0,
+							180,
+							0
+						]
+					},
+					"position": {
+						"vector": [
+							0,
+							0,
+							20
+						]
+					}
+				},
+				"cock": {
+					"rotation": {
+						"vector": [
+							20,
+							0,
+							0
+						]
+					}
+				},
+				"RightArm": {
+					"rotation": {
+						"vector": [
+							-95.92236,
+							32.36121,
+							-3.17805
+						]
+					}
+				},
+				"LeftArm": {
+					"rotation": {
+						"vector": [
+							-67.5,
+							0,
+							0
+						]
+					}
+				}
+			}
 		}
 	},
 	"geckolib_format_version": 2

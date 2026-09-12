@@ -381,6 +381,26 @@ public abstract class GirlEntity extends PathfinderMob implements GeoEntity {
             }
         }
 
+        // Revive walk/run/fastwalk states: the original only ever wrote WALK and
+        // never updated Luna's speed field, leaving all authored run cycles dead.
+        double var5 = Math.abs(this.getX() - this.xOld) + Math.abs(this.getZ() - this.zOld);
+        float var6 = (float) (var5 * 20.0F);
+        GirlEntity.a var7;
+        if (!this.onGround() || this.isPassenger() || this.ai() != com.trolmastercard.sexmod.entity.ScenePose.a) {
+            var7 = GirlEntity.a.a;
+        } else if (var6 >= 3.0F) {
+            var7 = GirlEntity.a.c;
+        } else if (var6 >= 1.0F) {
+            var7 = GirlEntity.a.b;
+        } else {
+            var7 = GirlEntity.a.a;
+        }
+        if (this.ag() != var7) {
+            this.entityData.set(ax, var7.toString());
+        }
+        if (this instanceof com.trolmastercard.sexmod.entity.LunaEntity) {
+            this.entityData.set(com.trolmastercard.sexmod.entity.LunaEntity.c, var6);
+        }
         this.as();
     }
 
