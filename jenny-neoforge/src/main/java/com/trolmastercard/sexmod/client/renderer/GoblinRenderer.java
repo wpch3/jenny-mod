@@ -54,10 +54,6 @@ public class GoblinRenderer extends GirlRenderer<com.trolmastercard.sexmod.entit
     }
 
     @Override
-    protected int a(com.trolmastercard.sexmod.entity.GirlEntity var1, String var2) {
-        return this.a((com.trolmastercard.sexmod.entity.GoblinEntity)var1, var2);
-    }
-
     protected int a(com.trolmastercard.sexmod.entity.GoblinEntity var1, String var2) {
         if (var2.contains("band")) {
             return -1;

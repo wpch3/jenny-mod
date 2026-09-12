@@ -18,7 +18,7 @@ import software.bernie.geckolib.animation.PlayState;
 import software.bernie.geckolib.animation.AnimatableManager.ControllerRegistrar;
 
 public class SlimeGirlEntity extends GirlEntity {
-    SlimeGirlEntity.a a;
+    SlimeGirlEntity.r a;
     public static final EntityDataAccessor<Integer> b = SynchedEntityData.defineId(SlimeGirlEntity.class, EntityDataSerializers.INT);
     public static final EntityDataAccessor<Float> c = SynchedEntityData.defineId(SlimeGirlEntity.class, EntityDataSerializers.FLOAT);
     public static final EntityDataAccessor<Integer> d = SynchedEntityData.defineId(SlimeGirlEntity.class, EntityDataSerializers.INT);
@@ -33,12 +33,12 @@ public class SlimeGirlEntity extends GirlEntity {
 
     public SlimeGirlEntity(EntityType<? extends PathfinderMob> var1, Level var2) {
         super(var1, var2);
-        this.a = SlimeGirlEntity.a.a;
+        this.a = SlimeGirlEntity.r.a;
         this.e = 0;
         this.f = true;
         this.g = false;
         this.h = 0;
-        this.a = SlimeGirlEntity.a.a;
+        this.a = SlimeGirlEntity.r.a;
         this.e = 0;
         this.f = true;
         this.g = false;
@@ -114,10 +114,10 @@ public class SlimeGirlEntity extends GirlEntity {
         super.readAdditionalSaveData(var1);
         this.entityData.set(b, var1.getInt("hornyLevel"));
         this.entityData.set(d, var1.contains("ticksUntilBirth") ? var1.getInt("ticksUntilBirth") : -1);
-        this.entityData.set(OUTFIT_HEAD, var1.contains("outfitHead") ? ItemStack.parseOptional(this.registryAccess(), var1.get("outfitHead")) : ItemStack.EMPTY);
-        this.entityData.set(OUTFIT_CHEST, var1.contains("outfitChest") ? ItemStack.parseOptional(this.registryAccess(), var1.get("outfitChest")) : ItemStack.EMPTY);
-        this.entityData.set(OUTFIT_LEGS, var1.contains("outfitLegs") ? ItemStack.parseOptional(this.registryAccess(), var1.get("outfitLegs")) : ItemStack.EMPTY);
-        this.entityData.set(OUTFIT_FEET, var1.contains("outfitFeet") ? ItemStack.parseOptional(this.registryAccess(), var1.get("outfitFeet")) : ItemStack.EMPTY);
+        this.entityData.set(OUTFIT_HEAD, var1.contains("outfitHead") ? ItemStack.parseOptional(this.registryAccess(), (CompoundTag)var1.get("outfitHead")) : ItemStack.EMPTY);
+        this.entityData.set(OUTFIT_CHEST, var1.contains("outfitChest") ? ItemStack.parseOptional(this.registryAccess(), (CompoundTag)var1.get("outfitChest")) : ItemStack.EMPTY);
+        this.entityData.set(OUTFIT_LEGS, var1.contains("outfitLegs") ? ItemStack.parseOptional(this.registryAccess(), (CompoundTag)var1.get("outfitLegs")) : ItemStack.EMPTY);
+        this.entityData.set(OUTFIT_FEET, var1.contains("outfitFeet") ? ItemStack.parseOptional(this.registryAccess(), (CompoundTag)var1.get("outfitFeet")) : ItemStack.EMPTY);
         if ((Integer)this.entityData.get(b) != 0) {
             this.entityData.set(GirlEntity.at, 0);
         }
@@ -156,7 +156,6 @@ public class SlimeGirlEntity extends GirlEntity {
         }
     }
 
-    @Override
     void b() {
         if (this.al() != null) {
             Player var1 = com.trolmastercard.sexmod.client.ClientUtils.b();
@@ -227,11 +226,11 @@ public class SlimeGirlEntity extends GirlEntity {
     void n() {
         if (this.level().isClientSide()) {
             if (this.e == 90) {
-                this.a = SlimeGirlEntity.a.b;
+                this.a = SlimeGirlEntity.r.b;
             }
 
             if (!this.f && this.onGround()) {
-                this.a = SlimeGirlEntity.a.d;
+                this.a = SlimeGirlEntity.r.d;
                 this.e = 0;
             }
 
@@ -376,7 +375,7 @@ public class SlimeGirlEntity extends GirlEntity {
         this.aB.setSoundKeyframeHandler(var0 -> {});
     }
 
-    enum a {
+    enum r {
         a("animation.slime.idle"),
         b("animation.slime.jumpstart"),
         c("animation.slime.jumpair"),
@@ -388,7 +387,7 @@ public class SlimeGirlEntity extends GirlEntity {
             return this.e;
         }
 
-        a(String var3) {
+        r(String var3) {
             this.e = var3;
         }
     }

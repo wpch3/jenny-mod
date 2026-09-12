@@ -1515,7 +1515,7 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
         }
 
         ArrayList var5 = new ArrayList();
-        ArrayList var6 = new ArrayList();
+        ArrayList<BlockPos> var6 = new ArrayList<>();
         ArrayList<BlockPos> var7 = new ArrayList<>();
         int var8 = var3 != Direction.SOUTH && var3 != Direction.WEST ? 1 : -1;
         if (var3.getAxis() == Axis.Z) {
@@ -1649,7 +1649,7 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
             return true;
         }
 
-        Collection var3 = com.trolmastercard.sexmod.server.TribeData.j(UUID.fromString(var2));
+        Collection<com.trolmastercard.sexmod.server.KoboldDen> var3 = com.trolmastercard.sexmod.server.TribeData.j(UUID.fromString(var2));
         if (var3 == null) {
             return true;
         }
@@ -1690,7 +1690,7 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
     }
 
     void c(UUID var1, Collection<com.trolmastercard.sexmod.server.KoboldDen> var2) {
-        List var3 = this.a(this.blockPosition(), RotatedPillarBlock.class, 30, 4, null);
+        List<BlockPos> var3 = this.a(this.blockPosition(), RotatedPillarBlock.class, 30, 4, null);
         BlockPos var4 = null;
 
         for (BlockPos var6 : var3) {

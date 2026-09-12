@@ -95,7 +95,7 @@ public class EnergyBallEntity extends Mob {
             if (this.c) {
                 Vec3 var1 = this.position();
                 AABB var2 = new AABB(var1.x - 0.75, var1.y - 0.75, var1.z - 0.75, var1.x + 0.75, var1.y + 0.75, var1.z + 0.75);
-                List var3 = this.level().getEntitiesOfClass(com.trolmastercard.sexmod.entity.GalathEntity.class, var2);
+                List<com.trolmastercard.sexmod.entity.GalathEntity> var3 = this.level().getEntitiesOfClass(com.trolmastercard.sexmod.entity.GalathEntity.class, var2);
                 if (!var3.isEmpty()) {
                     this.level().explode(this, this.getX(), this.getY(), this.getZ(), 1.0F, ExplosionInteraction.MOB);
 

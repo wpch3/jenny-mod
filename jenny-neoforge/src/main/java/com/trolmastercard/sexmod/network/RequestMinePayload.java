@@ -32,6 +32,22 @@ public final class RequestMinePayload implements CustomPacketPayload {
         this.f = var4;
     }
 
+    public int c() {
+        return this.c;
+    }
+
+    public int d() {
+        return this.d;
+    }
+
+    public int e() {
+        return this.e;
+    }
+
+    public String f() {
+        return this.f;
+    }
+
     public BlockPos a() {
         return new BlockPos(this.c, this.d, this.e);
     }

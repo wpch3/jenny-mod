@@ -745,7 +745,7 @@ public final class ModSounds {
     }
 
     public static DeferredHolder<SoundEvent, SoundEvent> a(String var0) {
-        return ModItems.get(var0);
+        return c.get(var0);
     }
 
     public static SoundEvent b(String var0) {
@@ -754,7 +754,7 @@ public final class ModSounds {
     }
 
     private static DeferredHolder<SoundEvent, SoundEvent> d(String var0) {
-        List var1 = ModMenus.get(var0);
+        List var1 = d.get(var0);
         return var1 != null && !var1.isEmpty() ? (DeferredHolder)var1.get(ThreadLocalRandom.current().nextInt(var1.size())) : null;
     }
 
@@ -769,7 +769,7 @@ public final class ModSounds {
 
     public static void b(Entity var0, String var1) {
         if (!var0.level().isClientSide()) {
-            DeferredHolder var2 = ModItems.get(var1);
+            DeferredHolder var2 = c.get(var1);
             if (var2 != null) {
                 var0.level().playSound(null, var0.getX(), var0.getY(), var0.getZ(), var2, SoundSource.NEUTRAL, 1.0F, 1.0F);
             }
@@ -795,7 +795,7 @@ public final class ModSounds {
 
     public static boolean c(Entity var0, String var1, String var2) {
         String var3 = "girls." + var1 + "." + var2;
-        if (ModMenus.containsKey(var3) && !ModMenus.get(var3).isEmpty()) {
+        if (d.containsKey(var3) && !d.get(var3).isEmpty()) {
             a(var0, var3);
             return true;
         } else {
@@ -810,9 +810,9 @@ public final class ModSounds {
     static {
         for (String var3 : b) {
             DeferredHolder var4 = a.register(var3, () -> SoundEvent.createVariableRangeEvent(c(var3)));
-            ModItems.put(var3, var4);
+            c.put(var3, var4);
             String var5 = var3.substring(0, var3.lastIndexOf(46));
-            ModMenus.computeIfAbsent(var5, var0 -> new ArrayList<>()).add(var4);
+            d.computeIfAbsent(var5, var0 -> new ArrayList<>()).add(var4);
         }
     }
 }

@@ -9,6 +9,7 @@ import com.trolmastercard.sexmod.registry.ModSounds;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import org.slf4j.Logger;
 
 // Hand-written from the fan's Main: identical wiring minus the license gate
@@ -24,6 +25,6 @@ public class Sexmod {
         ModSounds.a(var1);
         ModMenus.a(var1);
         ModItems.a(var1);
-        var1.addListener(ModEntities::a);
+        var1.addListener((EntityAttributeCreationEvent var0) -> ModEntities.a(var0));
     }
 }

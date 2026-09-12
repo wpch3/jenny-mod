@@ -14,20 +14,20 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class KoboldDen {
-    BlockPos a;
+    BlockPos q;
     KoboldDen.a b;
     HashSet<BlockPos> c;
     List<KoboldEntity> d = new ArrayList<>();
     Direction e = Direction.NORTH;
 
     public KoboldDen(BlockPos var1, KoboldDen.a var2, HashSet<BlockPos> var3) {
-        this.a = var1;
+        this.q = var1;
         this.b = var2;
         this.c = var3;
     }
 
     public KoboldDen(BlockPos var1, KoboldDen.a var2, HashSet<BlockPos> var3, Direction var4) {
-        this.a = var1;
+        this.q = var1;
         this.b = var2;
         this.c = var3;
         this.e = var4;
@@ -38,7 +38,7 @@ public class KoboldDen {
     }
 
     public BlockPos b() {
-        return this.a;
+        return this.q;
     }
 
     public KoboldDen.a c() {
@@ -114,15 +114,15 @@ public class KoboldDen {
             var4 = var4.above();
         }
 
-        HashSet var5 = new HashSet();
+        HashSet<BlockPos> var5 = new HashSet<>();
         int var6 = var4.getY() - var3.getY();
 
         for (int var7 = 0; var7 <= var6; var7++) {
             var5.add(var3.offset(0, var7, 0));
         }
 
-        HashSet var15 = c(var0, var3);
-        HashSet var8 = new HashSet();
+        HashSet<BlockPos> var15 = c(var0, var3);
+        HashSet<BlockPos> var8 = new HashSet<>();
 
         for (BlockPos var10 : var15) {
             if (var10.getX() == var3.getX() && var10.getZ() == var3.getZ()) {

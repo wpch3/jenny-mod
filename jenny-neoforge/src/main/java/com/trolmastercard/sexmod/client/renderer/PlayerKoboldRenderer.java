@@ -9,10 +9,6 @@ public class PlayerKoboldRenderer extends GirlRenderer<com.trolmastercard.sexmod
     }
 
     @Override
-    protected int a(com.trolmastercard.sexmod.entity.GirlEntity var1, String var2) {
-        return this.a((com.trolmastercard.sexmod.entity.player.PlayerKoboldEntity)var1, var2);
-    }
-
     protected int a(com.trolmastercard.sexmod.entity.player.PlayerKoboldEntity var1, String var2) {
         if (KoboldRenderer.a.contains(var2)) {
             return KoboldRenderer.a(a(var1).a());

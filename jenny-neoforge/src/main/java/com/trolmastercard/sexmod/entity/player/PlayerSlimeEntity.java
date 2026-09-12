@@ -12,6 +12,7 @@ import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.animation.PlayState;
 import software.bernie.geckolib.animation.AnimatableManager.ControllerRegistrar;
 import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.nbt.CompoundTag;
@@ -47,10 +48,10 @@ public class PlayerSlimeEntity extends PlayerGirlEntity {
     @Override
     public void readAdditionalSaveData(CompoundTag var1) {
         super.readAdditionalSaveData(var1);
-        this.entityData.set(OUTFIT_HEAD, var1.contains("outfitHead") ? ItemStack.parseOptional(this.registryAccess(), var1.get("outfitHead")) : ItemStack.EMPTY);
-        this.entityData.set(OUTFIT_CHEST, var1.contains("outfitChest") ? ItemStack.parseOptional(this.registryAccess(), var1.get("outfitChest")) : ItemStack.EMPTY);
-        this.entityData.set(OUTFIT_LEGS, var1.contains("outfitLegs") ? ItemStack.parseOptional(this.registryAccess(), var1.get("outfitLegs")) : ItemStack.EMPTY);
-        this.entityData.set(OUTFIT_FEET, var1.contains("outfitFeet") ? ItemStack.parseOptional(this.registryAccess(), var1.get("outfitFeet")) : ItemStack.EMPTY);
+        this.entityData.set(OUTFIT_HEAD, var1.contains("outfitHead") ? ItemStack.parseOptional(this.registryAccess(), (CompoundTag)var1.get("outfitHead")) : ItemStack.EMPTY);
+        this.entityData.set(OUTFIT_CHEST, var1.contains("outfitChest") ? ItemStack.parseOptional(this.registryAccess(), (CompoundTag)var1.get("outfitChest")) : ItemStack.EMPTY);
+        this.entityData.set(OUTFIT_LEGS, var1.contains("outfitLegs") ? ItemStack.parseOptional(this.registryAccess(), (CompoundTag)var1.get("outfitLegs")) : ItemStack.EMPTY);
+        this.entityData.set(OUTFIT_FEET, var1.contains("outfitFeet") ? ItemStack.parseOptional(this.registryAccess(), (CompoundTag)var1.get("outfitFeet")) : ItemStack.EMPTY);
     }
 
     public EntityDimensions getDefaultDimensions(Pose var1) {

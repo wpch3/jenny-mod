@@ -195,10 +195,10 @@ public final class SceneManager {
                         var0.options.setCameraType(CameraType.FIRST_PERSON);
                         a(var0);
                         c = 0;
-                        if (++d >= SceneManager.length) {
+                        if (++d >= a.length) {
                             f();
                             f = true;
-                            d("LIVE ALL-SCENES DONE (" + SceneManager.length + " scenes x 3 F5 POVs)");
+                            d("LIVE ALL-SCENES DONE (" + a.length + " scenes x 3 F5 POVs)");
                         } else {
                             b = 1;
                         }
@@ -290,10 +290,10 @@ public final class SceneManager {
                             l = 0;
                             if (++m >= i.length) {
                                 a(var0);
-                                if (++k >= JennyEntity.length) {
+                                if (++k >= g.length) {
                                     f();
                                     f = true;
-                                    d("GRID DONE (" + JennyEntity.length + " scenes x " + i.length + " views)");
+                                    d("GRID DONE (" + g.length + " scenes x " + i.length + " views)");
                                 } else {
                                     j = 2;
                                 }
@@ -486,7 +486,7 @@ public final class SceneManager {
         LocalPlayer var1 = var0.player;
         if (var0.level != null && var1 != null) {
             IntegratedServer var2 = var0.getSingleplayerServer();
-            Object var3 = var2 != null ? var2 : ServerLifecycleHooks.getCurrentServer();
+            MinecraftServer var3 = var2 != null ? var2 : ServerLifecycleHooks.getCurrentServer();
             if (!z) {
                 b(
                     "HOLD firing; player="
@@ -647,7 +647,7 @@ public final class SceneManager {
                 var2.setRemainingFireTicks(0);
             }
 
-            ArrayList var5 = new ArrayList();
+            ArrayList<Entity> var5 = new ArrayList<>();
 
             for (Entity var3 : var0.overworld().getAllEntities()) {
                 if (var3 instanceof Mob && !(var3 instanceof GirlEntity)) {
@@ -800,7 +800,7 @@ public final class SceneManager {
                 try {
                     ServerLevel var2 = var0.overworld();
                     StringBuilder var3 = new StringBuilder("CENSUS[" + var1 + "] players=");
-                    List var4 = var0.getPlayerList().getPlayers();
+                    List<ServerPlayer> var4 = var0.getPlayerList().getPlayers();
                     var3.append(var4.size());
 
                     for (ServerPlayer var6 : var4) {

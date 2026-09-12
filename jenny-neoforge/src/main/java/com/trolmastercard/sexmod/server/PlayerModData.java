@@ -38,7 +38,7 @@ public class PlayerModData {
     static HashMap<UUID, Long> c = new HashMap<>();
     static HashSet<UUID> d = new HashSet<>();
     static com.trolmastercard.sexmod.server.PlayerModData.a e;
-    public static final Factory<com.trolmastercard.sexmod.server.PlayerModData.a> f = new Factory(
+    public static final Factory<com.trolmastercard.sexmod.server.PlayerModData.a> f = new Factory<>(
         com.trolmastercard.sexmod.server.PlayerModData.a::new, com.trolmastercard.sexmod.server.PlayerModData.a::a, DataFixTypes.LEVEL
     );
 

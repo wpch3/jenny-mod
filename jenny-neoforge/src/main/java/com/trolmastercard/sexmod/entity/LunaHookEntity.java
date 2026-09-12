@@ -47,7 +47,7 @@ public class LunaHookEntity extends Entity {
     private int i;
     private float j;
     public Entity b;
-    private LunaHookEntity.a k = LunaHookEntity.a.a;
+    private LunaHookEntity.q k = LunaHookEntity.q.a;
     private int l;
     private int m;
 
@@ -150,7 +150,7 @@ public class LunaHookEntity extends Entity {
     }
 
     public void onSyncedDataUpdated(EntityDataAccessor<?> var1) {
-        if (KoboldEggEntity.equals(var1)) {
+        if (d.equals(var1)) {
             int var2 = (Integer)this.getEntityData().get(d);
             this.b = var2 > 0 ? this.level().getEntity(var2 - 1) : null;
         }
@@ -183,16 +183,16 @@ public class LunaHookEntity extends Entity {
             double var6 = var5.x;
             double var8 = var5.y;
             double var10 = var5.z;
-            if (this.k == LunaHookEntity.a.a) {
+            if (this.k == LunaHookEntity.q.a) {
                 if (this.b != null) {
                     this.setDeltaMovement(0.0, 0.0, 0.0);
-                    this.k = LunaHookEntity.a.b;
+                    this.k = LunaHookEntity.q.b;
                     return;
                 }
 
                 if (var1 > 0.0F) {
                     this.setDeltaMovement(var6 * 0.3, var8 * 0.2, var10 * 0.3);
-                    this.k = LunaHookEntity.a.c;
+                    this.k = LunaHookEntity.q.c;
                     return;
                 }
 
@@ -207,11 +207,11 @@ public class LunaHookEntity extends Entity {
                     this.setDeltaMovement(0.0, 0.0, 0.0);
                 }
             } else {
-                if (this.k == LunaHookEntity.a.b) {
+                if (this.k == LunaHookEntity.q.b) {
                     if (this.b != null) {
                         if (this.b.isRemoved()) {
                             this.b = null;
-                            this.k = LunaHookEntity.a.a;
+                            this.k = LunaHookEntity.q.a;
                         } else {
                             this.setPosRaw(this.b.getX(), this.b.getBoundingBox().minY + this.b.getBbHeight() * 0.8, this.b.getZ());
                             this.moveTo(this.getX(), this.getY(), this.getZ());
@@ -221,7 +221,7 @@ public class LunaHookEntity extends Entity {
                     return;
                 }
 
-                if (this.k == LunaHookEntity.a.c) {
+                if (this.k == LunaHookEntity.q.c) {
                     var5 = this.getDeltaMovement();
                     var6 = var5.x;
                     var8 = var5.y;
@@ -297,7 +297,7 @@ public class LunaHookEntity extends Entity {
 
         Entity var5 = null;
         AABB var6 = this.getBoundingBox().expandTowards(var2.x, var2.y, var2.z).inflate(1.0);
-        List var7 = this.level().getEntities(this, var6, var1x -> this.a(var1x));
+        List<Entity> var7 = this.level().getEntities(this, var6, var1x -> this.a(var1x));
         double var8 = 0.0;
 
         for (Entity var11 : var7) {
@@ -503,7 +503,7 @@ public class LunaHookEntity extends Entity {
     public void readAdditionalSaveData(CompoundTag var1) {
     }
 
-    enum a {
+    enum q {
         a,
         b,
         c;

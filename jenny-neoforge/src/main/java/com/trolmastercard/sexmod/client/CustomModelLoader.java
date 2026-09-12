@@ -220,7 +220,7 @@ public class CustomModelLoader {
         }
     }
 
-    static ResourceLocation a(String var0, File var1) {
+    static ResourceLocation a(String var0, File var1) throws IOException {
         ResourceLocation var2 = ResourceLocation.fromNamespaceAndPath("sexmod", var0.toLowerCase() + "_custom_texture");
 
         try (FileInputStream var3 = new FileInputStream(var1)) {
@@ -231,7 +231,7 @@ public class CustomModelLoader {
         return var2;
     }
 
-    static Object a(File var0) {
+    static Object a(File var0) throws IOException {
         StringBuilder var1 = new StringBuilder();
 
         String var3;

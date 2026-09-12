@@ -150,11 +150,11 @@ public final class ModEntities {
     );
     public static final DeferredHolder<EntityType<?>, EntityType<com.trolmastercard.sexmod.entity.LunaHookEntity>> z = a.register(
         "luna_hook",
-        () -> Builder.of(com.trolmastercard.sexmod.entity.LunaHookEntity::new, MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(64).updateInterval(3).build("luna_hook")
+        () -> Builder.<com.trolmastercard.sexmod.entity.LunaHookEntity>of(com.trolmastercard.sexmod.entity.LunaHookEntity::new, MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(64).updateInterval(3).build("luna_hook")
     );
     public static final DeferredHolder<EntityType<?>, EntityType<com.trolmastercard.sexmod.entity.EnergyBallEntity>> A = a.register(
         "energy_ball",
-        () -> Builder.of(com.trolmastercard.sexmod.entity.EnergyBallEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(64).updateInterval(3).build("energy_ball")
+        () -> Builder.<com.trolmastercard.sexmod.entity.EnergyBallEntity>of(com.trolmastercard.sexmod.entity.EnergyBallEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(64).updateInterval(3).build("energy_ball")
     );
     public static final DeferredHolder<EntityType<?>, EntityType<com.trolmastercard.sexmod.entity.KoboldEggEntity>> B = a.register(
         "kobold_egg",

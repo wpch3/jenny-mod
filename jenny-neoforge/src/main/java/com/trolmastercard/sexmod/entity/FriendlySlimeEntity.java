@@ -122,7 +122,7 @@ public class FriendlySlimeEntity extends Mob {
     }
 
     public void onSyncedDataUpdated(EntityDataAccessor<?> var1) {
-        if (LunaHookEntity.equals(var1)) {
+        if (e.equals(var1)) {
             this.refreshDimensions();
             this.setYRot(this.yHeadRot);
             this.setYBodyRot(this.yHeadRot);

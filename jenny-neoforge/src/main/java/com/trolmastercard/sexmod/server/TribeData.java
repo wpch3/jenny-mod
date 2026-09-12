@@ -43,11 +43,11 @@ import com.trolmastercard.sexmod.util.ModState;
 public class TribeData {
     private static final HashMap<UUID, TribeData.a> e = new HashMap<>();
     static TribeData.b a;
-    static final Vec3[] b = new Vec3[]{
+    static final Vec3[] q = new Vec3[]{
         new Vec3(0.0, 0.0, 0.0), new Vec3(0.5, 0.0, 0.0), new Vec3(-0.5, 0.0, 0.0), new Vec3(0.0, 0.0, 0.5), new Vec3(0.0, 0.0, -0.5)
     };
     static HashMap<KoboldEntity, BlockPos[]> c = new HashMap<>();
-    public static final Factory<TribeData.b> d = new Factory(TribeData.b::new, TribeData.b::a, DataFixTypes.LEVEL);
+    public static final Factory<TribeData.b> d = new Factory<>(TribeData.b::new, TribeData.b::a, DataFixTypes.LEVEL);
 
     static void a() {
         if (a != null) {
@@ -61,7 +61,7 @@ public class TribeData {
         ServerLevel var2 = var1.overworld();
         if (var2 != null) {
             a(var2);
-            ArrayList var3 = new ArrayList();
+            ArrayList<UUID> var3 = new ArrayList<>();
 
             for (Entry var5 : e.entrySet()) {
                 TribeData.a var6 = (TribeData.a)var5.getValue();
@@ -106,7 +106,7 @@ public class TribeData {
             var3[var4] = KoboldEntity.b();
         }
 
-        ArrayList var10 = new ArrayList();
+        ArrayList<KoboldEntity> var10 = new ArrayList<>();
 
         for (float var8 : var3) {
             KoboldEntity var9 = KoboldEntity.a(var0, var2, var8);
@@ -129,7 +129,7 @@ public class TribeData {
         int var13 = 0;
 
         for (KoboldEntity var16 : var10) {
-            var16.setPos(var1.x + b[var13].x, var1.y, var1.z + b[var13].z);
+            var16.setPos(var1.x + q[var13].x, var1.y, var1.z + q[var13].z);
             var0.addFreshEntity(var16);
             var13++;
         }
@@ -648,7 +648,7 @@ public class TribeData {
         public void a(KoboldEntity var1) {
             if (!this.d.contains(var1)) {
                 UUID var2 = var1.ah();
-                ArrayList var3 = new ArrayList();
+                ArrayList<KoboldEntity> var3 = new ArrayList<>();
 
                 for (KoboldEntity var5 : this.d) {
                     if (var5.ah().equals(var2)) {
