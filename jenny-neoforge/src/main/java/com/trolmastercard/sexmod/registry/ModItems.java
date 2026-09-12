@@ -32,6 +32,7 @@ public final class ModItems {
     public static final DeferredItem<SpawnEggItem> k = a("galath", com.trolmastercard.sexmod.registry.ModEntities.t);
     public static final DeferredItem<SpawnEggItem> l = a("kobold", com.trolmastercard.sexmod.registry.ModEntities.u);
     public static final DeferredItem<SpawnEggItem> m = a("goblin", com.trolmastercard.sexmod.registry.ModEntities.v);
+    public static final DeferredItem<SpawnEggItem> n = a("custom_model", com.trolmastercard.sexmod.registry.ModEntities.w);
     public static final DeferredItem<SpawnEggItem> o = a("friendly_slime", com.trolmastercard.sexmod.registry.ModEntities.x);
 
     public static final DeferredItem<com.trolmastercard.sexmod.item.LunaRodItem> q = a.registerItem(

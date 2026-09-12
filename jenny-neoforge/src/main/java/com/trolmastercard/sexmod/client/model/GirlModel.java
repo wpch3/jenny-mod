@@ -59,8 +59,8 @@ public abstract class GirlModel<T extends com.trolmastercard.sexmod.entity.GirlE
     @Override
     public void setCustomAnimations(T var1, long var2, AnimationState<T> var4) {
         super.setCustomAnimations(var1, var2, var4);
-        this.resetStuckBones(var1, var5);
         AnimationProcessor<T> var5 = this.getAnimationProcessor();
+        this.resetStuckBones(var1, var5);
         boolean var6 = this.e(var1);
         this.a(var5, "rightArmAlex", var6);
         this.a(var5, "rightLowerArmAlex", var6);
