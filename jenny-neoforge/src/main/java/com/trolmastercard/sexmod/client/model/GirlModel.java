@@ -59,6 +59,7 @@ public abstract class GirlModel<T extends com.trolmastercard.sexmod.entity.GirlE
     @Override
     public void setCustomAnimations(T var1, long var2, AnimationState<T> var4) {
         super.setCustomAnimations(var1, var2, var4);
+        this.resetStuckBones(var1, var5);
         AnimationProcessor<T> var5 = this.getAnimationProcessor();
         boolean var6 = this.e(var1);
         this.a(var5, "rightArmAlex", var6);
@@ -93,6 +94,44 @@ public abstract class GirlModel<T extends com.trolmastercard.sexmod.entity.GirlE
         this.a(var1, var5, var4);
         this.applyOutfitVisibility(var1, var5);
         this.b(var1, var5, var4);
+    }
+
+
+    protected static final String[] STUCK_BONES_BASE = new String[] {"neck", "footR", "footL", "legL2", "legR2", "torso", "hip"};
+    private static final String[] STUCK_BONES_EXT = new String[] {"head", "shinR", "shinL", "upperBody", "chest", "body"};
+
+    /**
+     * Bone names zeroed by resetStuckBones. Bee overrides to base-only since
+     * her hunched body/head/shins carry static rotations by design.
+     */
+    protected String[] stuckBoneNames() {
+        String[] all = new String[STUCK_BONES_BASE.length + STUCK_BONES_EXT.length];
+        System.arraycopy(STUCK_BONES_BASE, 0, all, 0, STUCK_BONES_BASE.length);
+        System.arraycopy(STUCK_BONES_EXT, 0, all, STUCK_BONES_BASE.length, STUCK_BONES_EXT.length);
+        return all;
+    }
+
+    /**
+     * Zeroes structural bones every frame while idle/walking (pose a, on
+     * ground). Scene animations rotate the spine/head/shins but every
+     * idle/walk loop is authored all-zero and nothing ever resets bones, so
+     * finished scenes (or poses leaking through Geckolib's shared baked
+     * bones) leave girls tilted. Only bones verified zero-static are touched,
+     * so this is lossless; runs before head-tracking and the walk below.
+     */
+    private void resetStuckBones(T girl, AnimationProcessor<T> processor) {
+        if (girl.ai() == null || girl.ai() != com.trolmastercard.sexmod.entity.ScenePose.a || girl.isPassenger() || !girl.onGround()) {
+            return;
+        }
+        for (String name : this.stuckBoneNames()) {
+            GeoBone bone = processor.getBone(name);
+            if (bone == null) {
+                continue;
+            }
+            bone.setRotX(0.0F);
+            bone.setRotY(0.0F);
+            bone.setRotZ(0.0F);
+        }
     }
 
     private void b(T var1, AnimationProcessor<T> var2, AnimationState<T> var3) {
