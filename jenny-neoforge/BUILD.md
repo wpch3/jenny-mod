@@ -58,7 +58,15 @@ GeckoLib 下载地址：https://modrinth.com/mod/geckolib （选 NeoForge 1.21.1
 
 ## 6. 构建失败排查
 
-1. `Could not resolve net.neoforged...`：检查网络/代理，确认能访问 `maven.neoforged.org`。
+1. `Could not resolve net.neoforged...` / `Connection reset`：Gradle/Java **不读系统代理**。
+   若本机上网走代理（Clash/HeySocks 等），把下面 4 行（端口改成你的）加到 `gradle.properties` 末尾，
+   然后先跑一次 `gradlew --stop` 杀掉旧 Daemon 再构建：
+   ```properties
+   systemProp.http.proxyHost=127.0.0.1
+   systemProp.http.proxyPort=27890
+   systemProp.https.proxyHost=127.0.0.1
+   systemProp.https.proxyPort=27890
+   ```
 2. `Could not resolve software.bernie.geckolib...`：确认能访问 `dl.cloudsmith.io`，
    或改用 Modrinth 坐标（见 `build.gradle` 注释）：`maven.modrinth:8BmcQJ2H:tPkJmim6`。
 3. `Unsupported class file major version`：Gradle 用的 JDK 不是 21，检查 `JAVA_HOME`
