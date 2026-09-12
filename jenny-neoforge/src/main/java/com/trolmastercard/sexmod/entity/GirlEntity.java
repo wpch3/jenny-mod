@@ -751,6 +751,12 @@ public abstract class GirlEntity extends PathfinderMob implements GeoEntity {
                 return this.a(var1x);
             }
         }));
+        this.aD.setSoundKeyframeHandler(var0 -> {
+        });
+        this.aC.setSoundKeyframeHandler(var0 -> {
+        });
+        this.aB.setSoundKeyframeHandler(var0 -> {
+        });
     }
 
     protected String h() {

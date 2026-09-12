@@ -18,12 +18,7 @@ public class BiaModel extends GirlModel<com.trolmastercard.sexmod.entity.BiaEnti
 
     @Override
     public ResourceLocation a(com.trolmastercard.sexmod.entity.GirlEntity var1) {
-        int outfit = var1.aj();
-        if (outfit > this.i().length) {
-            System.out.println("Girl doesn't have an outfit Nr." + outfit + " so im just making her nude lol");
-            return this.i()[0];
-        }
-        return this.i()[outfit];
+        return ResourceLocation.fromNamespaceAndPath("sexmod", "bia/bia");
     }
 
     // Official cl groups (d stays the gs empty default).

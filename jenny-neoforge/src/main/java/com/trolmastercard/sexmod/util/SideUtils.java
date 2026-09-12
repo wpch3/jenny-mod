@@ -21,7 +21,7 @@ public class SideUtils {
         }
 
         boolean var2 = var1.isSameThread();
-        Sexmod.a.warn("couldn't clarify if is running on a server or client thread. Came to the solution onServer=" + var2);
+        Sexmod.a.debug("couldn't clarify if is running on a server or client thread. Came to the solution onServer=" + var2);
         return var2;
     }
 }

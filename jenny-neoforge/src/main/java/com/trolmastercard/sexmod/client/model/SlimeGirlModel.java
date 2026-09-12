@@ -25,15 +25,7 @@ public class SlimeGirlModel extends GirlModel<SlimeGirlEntity> {
     // Official cr.a(em): NPC slimes only ever pick nude (0) or dressed (2).
     @Override
     public ResourceLocation a(com.trolmastercard.sexmod.entity.GirlEntity var1) {
-        int outfit = var1.aj();
-        if (outfit > this.i().length) {
-            System.out.println("Girl doesn't have an outfit Nr." + outfit + " so im just making her nude lol");
-            return this.i()[0];
-        }
-        if (outfit == 1) {
-            return this.i()[2];
-        }
-        return this.i()[0];
+        return ResourceLocation.fromNamespaceAndPath("sexmod", "slime/slime");
     }
 
     @Override

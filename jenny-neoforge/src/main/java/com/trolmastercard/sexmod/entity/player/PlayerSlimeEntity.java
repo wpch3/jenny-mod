@@ -39,10 +39,25 @@ public class PlayerSlimeEntity extends PlayerGirlEntity {
     @Override
     public void addAdditionalSaveData(CompoundTag var1) {
         super.addAdditionalSaveData(var1);
-        var1.put("outfitHead", ((ItemStack)this.entityData.get(OUTFIT_HEAD)).save(this.registryAccess()));
-        var1.put("outfitChest", ((ItemStack)this.entityData.get(OUTFIT_CHEST)).save(this.registryAccess()));
-        var1.put("outfitLegs", ((ItemStack)this.entityData.get(OUTFIT_LEGS)).save(this.registryAccess()));
-        var1.put("outfitFeet", ((ItemStack)this.entityData.get(OUTFIT_FEET)).save(this.registryAccess()));
+        ItemStack var2 = (ItemStack)this.entityData.get(OUTFIT_HEAD);
+        if (!var2.isEmpty()) {
+            var1.put("outfitHead", var2.save(this.registryAccess()));
+        }
+
+        ItemStack var3 = (ItemStack)this.entityData.get(OUTFIT_CHEST);
+        if (!var3.isEmpty()) {
+            var1.put("outfitChest", var3.save(this.registryAccess()));
+        }
+
+        ItemStack var4 = (ItemStack)this.entityData.get(OUTFIT_LEGS);
+        if (!var4.isEmpty()) {
+            var1.put("outfitLegs", var4.save(this.registryAccess()));
+        }
+
+        ItemStack var5 = (ItemStack)this.entityData.get(OUTFIT_FEET);
+        if (!var5.isEmpty()) {
+            var1.put("outfitFeet", var5.save(this.registryAccess()));
+        }
     }
 
     @Override
