@@ -12,7 +12,7 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
 public class NpcEquipmentMenu extends AbstractContainerMenu {
-    private static final int[] a = new int[]{31, 50, 72, 91, 110, 129};
+    private static final int[] a = new int[]{31, 51, 74, 93, 112, 131};
     private final Container b;
 
     public NpcEquipmentMenu(int var1, Inventory var2, HumanoidGirlEntity var3) {
@@ -28,17 +28,17 @@ public class NpcEquipmentMenu extends AbstractContainerMenu {
         this.b = var3;
 
         for (int var4 = 0; var4 < 6; var4++) {
-            this.addSlot(new Slot(var3, var4, a[var4], 18));
+            this.addSlot(new Slot(var3, var4, a[var4], 8));
         }
 
         for (int var6 = 0; var6 < 3; var6++) {
             for (int var5 = 0; var5 < 9; var5++) {
-                this.addSlot(new Slot(var2, var5 + var6 * 9 + 9, 8 + var5 * 18, 84 + var6 * 18));
+                this.addSlot(new Slot(var2, var5 + var6 * 9 + 9, 8 + var5 * 18, 33 + var6 * 18));
             }
         }
 
         for (int var7 = 0; var7 < 9; var7++) {
-            this.addSlot(new Slot(var2, var7, 8 + var7 * 18, 142));
+            this.addSlot(new Slot(var2, var7, 8 + var7 * 18, 91));
         }
     }
 

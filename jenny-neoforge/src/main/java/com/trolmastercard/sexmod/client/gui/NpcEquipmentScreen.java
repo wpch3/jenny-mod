@@ -11,9 +11,15 @@ public class NpcEquipmentScreen extends AbstractContainerScreen<com.trolmasterca
 
     public NpcEquipmentScreen(com.trolmastercard.sexmod.menu.NpcEquipmentMenu var1, Inventory var2, Component var3) {
         super(var1, var2, var3);
+        this.imageWidth = 184;
+        this.imageHeight = 116;
     }
 
     protected void renderBg(GuiGraphics var1, float var2, int var3, int var4) {
-        var1.blit(a, this.leftPos, this.topPos, 33.0F, 16.0F, this.imageWidth, this.imageHeight, 256, 256);
+        var1.blit(a, this.leftPos, this.topPos, 32.0F, 14.0F, this.imageWidth, this.imageHeight, 256, 256);
+    }
+
+    @Override
+    protected void renderLabels(GuiGraphics var1, int var2, int var3) {
     }
 }

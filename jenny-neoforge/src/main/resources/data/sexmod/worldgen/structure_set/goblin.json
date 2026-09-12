@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 41005,
+    "spacing": 14,
+    "separation": 8
+  },
+  "structures": [
+    {
+      "structure": "sexmod:goblin",
+      "weight": 1
+    }
+  ]
+}

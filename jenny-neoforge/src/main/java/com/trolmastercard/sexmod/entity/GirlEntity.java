@@ -184,8 +184,12 @@ public abstract class GirlEntity extends PathfinderMob implements GeoEntity {
     }
 
     public Vec3 am() {
-        String[] var1 = ((String)this.entityData.get(aq)).split("\\|");
-        return new Vec3(Double.parseDouble(var1[0]), Double.parseDouble(var1[1]), Double.parseDouble(var1[2]));
+        try {
+            String[] var1 = ((String)this.entityData.get(aq)).split("\\|");
+            return new Vec3(Double.parseDouble(var1[0]), Double.parseDouble(var1[1]), Double.parseDouble(var1[2]));
+        } catch (RuntimeException var2) {
+            return this.position();
+        }
     }
 
     public void d(Vec3 var1) {
@@ -432,13 +436,14 @@ public abstract class GirlEntity extends PathfinderMob implements GeoEntity {
             com.trolmastercard.sexmod.entity.ScenePose var12 = this.ai();
             int var16 = switch (var12) {
                 case h, i, j, k, l, m, S, T, U, V, W, X, Y, bv, by, bw, bx, bz, cj -> -1;
-                case M, N, O, P, w, x, y, z, br, bs, bt, bA, bB, bC, bD, bE, aD, aE, aF, aG, aH, aK, aL, aM, aN, p, q, r, cl, cm, cn, cd -> 1;
+                case M, N, O, P -> 2;
+                case w, x, y, z, br, bs, bt, bA, bB, bC, bD, bE, aD, aE, aF, aG, aH, aK, aL, aM, aN, p, q, r, cl, cm, cn, cd -> 1;
                 default -> 0;
             };
             double var10 = Math.toRadians(this.e_().floatValue());
             double var13 = -Math.sin(var10);
             double var14 = Math.cos(var10);
-            double var17 = var16 < 0 ? -0.9 : (var16 > 0 ? 0.35 : 0.8);
+            double var17 = var16 < 0 ? -0.9 : (var16 > 1 ? 0.9 : (var16 > 0 ? 0.35 : 0.8));
             double var4 = this.getX() + var13 * var17;
             double var6 = this.getZ() + var14 * var17;
             float var18 = var16 < 0 ? this.e_() : this.e_() + 180.0F;

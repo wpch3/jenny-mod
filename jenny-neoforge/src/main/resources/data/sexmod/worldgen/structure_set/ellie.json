@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 41003,
+    "spacing": 18,
+    "separation": 10
+  },
+  "structures": [
+    {
+      "structure": "sexmod:ellie",
+      "weight": 1
+    }
+  ]
+}
