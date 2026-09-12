@@ -862,7 +862,12 @@ public class KoboldEntity extends VariantGirlEntity implements Triggerable, Cont
     }
 
     void e(UUID var1) {
-        Collection var2 = 
+        Collection var2 = com.trolmastercard.sexmod.server.TribeData.j(var1);
+        if (var2 != null) {
+            for (com.trolmastercard.sexmod.server.KoboldDen var4 : var2) {
+                var4.b(this);
+            }
+        }
 
         if (this.aw()) {
             this.f(var1);

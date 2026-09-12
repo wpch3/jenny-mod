@@ -7,7 +7,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
-public record SendCompanionHomePayload() implements CustomPacketPayload {
+public final class SendCompanionHomePayload implements CustomPacketPayload {
     private final String c;
     public static final Type<SendCompanionHomePayload> a = new Type(ResourceLocation.fromNamespaceAndPath("sexmod", "send_companion_home"));
     public static final StreamCodec<RegistryFriendlyByteBuf, SendCompanionHomePayload> b = StreamCodec.composite(ByteBufCodecs.STRING_UTF8, SendCompanionHomePayload::a, SendCompanionHomePayload::new);

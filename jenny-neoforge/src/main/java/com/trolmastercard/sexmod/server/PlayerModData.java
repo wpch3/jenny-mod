@@ -212,7 +212,7 @@ public class PlayerModData {
             return var0;
         }
 
-        public record a() {
+        public static final class a {
             private final UUID b;
             private final UUID c;
             private final long d;

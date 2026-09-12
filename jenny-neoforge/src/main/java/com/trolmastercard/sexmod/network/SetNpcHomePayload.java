@@ -7,7 +7,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
-public record SetNpcHomePayload() implements CustomPacketPayload {
+public final class SetNpcHomePayload implements CustomPacketPayload {
     private final String c;
     private final double d;
     private final double e;

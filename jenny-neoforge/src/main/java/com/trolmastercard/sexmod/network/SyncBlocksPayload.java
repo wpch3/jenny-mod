@@ -8,7 +8,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
-public record SyncBlocksPayload() implements CustomPacketPayload {
+public final class SyncBlocksPayload implements CustomPacketPayload {
     private final int c;
     private final int d;
     private final int e;

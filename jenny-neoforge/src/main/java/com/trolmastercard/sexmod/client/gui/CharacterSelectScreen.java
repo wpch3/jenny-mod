@@ -100,13 +100,6 @@ public class CharacterSelectScreen extends Screen {
         return false;
     }
 
-    private record a() {
-        private final LivingEntity a;
-        private final String b;
-
-        private a(LivingEntity var1, String var2) {
-            this.a = var1;
-            this.b = var2;
-        }
+    private record a(LivingEntity a, String b) {
     }
 }

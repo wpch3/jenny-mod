@@ -7,7 +7,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
-public record ClaimTribePayload() implements CustomPacketPayload {
+public final class ClaimTribePayload implements CustomPacketPayload {
     private final String c;
     private final String d;
     private final String e;

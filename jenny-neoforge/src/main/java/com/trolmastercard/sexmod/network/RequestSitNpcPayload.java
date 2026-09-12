@@ -7,7 +7,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
-public record RequestSitNpcPayload() implements CustomPacketPayload {
+public final class RequestSitNpcPayload implements CustomPacketPayload {
     private final String c;
     private final String d;
     private final boolean e;

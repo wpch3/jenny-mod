@@ -7,7 +7,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
-public record AdvanceScenePayload() implements CustomPacketPayload {
+public final class AdvanceScenePayload implements CustomPacketPayload {
     private final boolean c;
     public static final Type<AdvanceScenePayload> a = new Type(ResourceLocation.fromNamespaceAndPath("sexmod", "advance_scene"));
     public static final StreamCodec<RegistryFriendlyByteBuf, AdvanceScenePayload> b = StreamCodec.composite(ByteBufCodecs.BOOL, AdvanceScenePayload::a, AdvanceScenePayload::new);

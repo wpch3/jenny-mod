@@ -1445,16 +1445,7 @@ public class GalathEntity extends GirlEntity implements PlayerRideableJumping {
         return var7;
     }
 
-    private record a() {
-        private final double a;
-        private final double b;
-        private final double c;
-
-        private a(double var1, double var3, double var5) {
-            this.a = var1;
-            this.b = var3;
-            this.c = var5;
-        }
+    private record a(double a, double b, double c) {
     }
 
     @EventBusSubscriber(modid = "sexmod")

@@ -732,7 +732,7 @@ public class TribeData {
             return a.parse(NbtOps.INSTANCE, var0.get("tribes")).result().orElseGet(TribeData.b::new);
         }
 
-        public record a() {
+        public static final class a {
             private final UUID b;
             private final com.trolmastercard.sexmod.EyeAndKoboldColor c;
             private final Optional<UUID> d;

@@ -7,7 +7,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
-public record NotifyOwnershipPayload() implements CustomPacketPayload {
+public final class NotifyOwnershipPayload implements CustomPacketPayload {
     private final boolean c;
     public static final Type<NotifyOwnershipPayload> a = new Type(ResourceLocation.fromNamespaceAndPath("sexmod", "notify_ownership"));
     public static final StreamCodec<RegistryFriendlyByteBuf, NotifyOwnershipPayload> b = StreamCodec.composite(ByteBufCodecs.BOOL, NotifyOwnershipPayload::a, NotifyOwnershipPayload::new);

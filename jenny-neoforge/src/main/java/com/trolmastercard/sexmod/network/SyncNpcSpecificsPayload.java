@@ -10,7 +10,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
-public record SyncNpcSpecificsPayload() implements CustomPacketPayload {
+public final class SyncNpcSpecificsPayload implements CustomPacketPayload {
     private final Map<com.trolmastercard.sexmod.entity.NpcType, String> c;
     public static final Type<SyncNpcSpecificsPayload> a = new Type(ResourceLocation.fromNamespaceAndPath("sexmod", "sync_npc_specifics"));
     public static final StreamCodec<RegistryFriendlyByteBuf, SyncNpcSpecificsPayload> b = StreamCodec.of((var0, var1) -> {

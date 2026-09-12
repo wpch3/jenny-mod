@@ -7,7 +7,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
-public record NotifyGalathCoinGiftPayload() implements CustomPacketPayload {
+public final class NotifyGalathCoinGiftPayload implements CustomPacketPayload {
     private final String c;
     private final String d;
     public static final Type<NotifyGalathCoinGiftPayload> a = new Type(ResourceLocation.fromNamespaceAndPath("sexmod", "notify_galath_coin_gift"));

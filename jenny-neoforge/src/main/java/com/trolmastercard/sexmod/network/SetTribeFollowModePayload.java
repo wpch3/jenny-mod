@@ -7,7 +7,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
-public record SetTribeFollowModePayload() implements CustomPacketPayload {
+public final class SetTribeFollowModePayload implements CustomPacketPayload {
     private final boolean c;
     public static final Type<SetTribeFollowModePayload> a = new Type(ResourceLocation.fromNamespaceAndPath("sexmod", "set_tribe_follow_mode"));
     public static final StreamCodec<RegistryFriendlyByteBuf, SetTribeFollowModePayload> b = StreamCodec.composite(ByteBufCodecs.BOOL, SetTribeFollowModePayload::a, SetTribeFollowModePayload::new);

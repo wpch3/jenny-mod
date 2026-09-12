@@ -331,7 +331,7 @@ public final class NpcSpawner {
         int c = -1;
         String d = "(not spawned)";
 
-        NpcSpawner(String var1, Function<ServerLevel, ? extends Entity> var2) {
+        b(String var1, Function<ServerLevel, ? extends Entity> var2) {
             this.a = var1;
             this.b = var2;
         }

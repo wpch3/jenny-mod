@@ -7,7 +7,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
-public record SyncPlayableStatePayload() implements CustomPacketPayload {
+public final class SyncPlayableStatePayload implements CustomPacketPayload {
     private final String c;
     private final int d;
     private final String e;

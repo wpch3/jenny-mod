@@ -11,7 +11,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
-public record RequestMinePayload() implements CustomPacketPayload {
+public final class RequestMinePayload implements CustomPacketPayload {
     private final int c;
     private final int d;
     private final int e;

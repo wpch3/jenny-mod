@@ -13,7 +13,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
-public record ResetPlayablePayload() implements CustomPacketPayload {
+public final class ResetPlayablePayload implements CustomPacketPayload {
     private final String c;
     private final boolean d;
     public static final Type<ResetPlayablePayload> a = new Type(ResourceLocation.fromNamespaceAndPath("sexmod", "reset_playable"));

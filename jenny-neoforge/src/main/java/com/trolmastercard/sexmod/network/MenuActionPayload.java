@@ -7,7 +7,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
-public record MenuActionPayload() implements CustomPacketPayload {
+public final class MenuActionPayload implements CustomPacketPayload {
     private final int c;
     private final String d;
     public static final Type<MenuActionPayload> a = new Type(ResourceLocation.fromNamespaceAndPath("sexmod", "menu_action"));

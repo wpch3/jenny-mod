@@ -8,7 +8,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
-public record RequestCancelTaskPayload() implements CustomPacketPayload {
+public final class RequestCancelTaskPayload implements CustomPacketPayload {
     private final int c;
     private final int d;
     private final int e;

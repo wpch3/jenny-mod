@@ -7,7 +7,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
-public record SendChatMessagePayload() implements CustomPacketPayload {
+public final class SendChatMessagePayload implements CustomPacketPayload {
     private final String c;
     public static final Type<SendChatMessagePayload> a = new Type(ResourceLocation.fromNamespaceAndPath("sexmod", "send_chat_message"));
     public static final StreamCodec<RegistryFriendlyByteBuf, SendChatMessagePayload> b = StreamCodec.composite(ByteBufCodecs.STRING_UTF8, SendChatMessagePayload::a, SendChatMessagePayload::new);

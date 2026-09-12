@@ -7,7 +7,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type;
 import net.minecraft.resources.ResourceLocation;
 
-public record UploadModelStringPayload() implements CustomPacketPayload {
+public final class UploadModelStringPayload implements CustomPacketPayload {
     private final String c;
     private final String d;
     public static final Type<UploadModelStringPayload> a = new Type(ResourceLocation.fromNamespaceAndPath("sexmod", "upload_model_string"));
