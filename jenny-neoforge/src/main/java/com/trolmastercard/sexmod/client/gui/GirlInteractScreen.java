@@ -35,7 +35,10 @@ public class GirlInteractScreen extends Screen {
         "action.names.deepthroat",
         "Reverse cowgirl",
         "action.names.strip",
-        "action.names.dressup"
+        "action.names.dressup",
+        "action.names.talk",
+        "action.names.headpat",
+        "action.names.makemerichallie"
     );
     private static final EntityDataAccessor<ItemStack>[] d = a();
     private final GirlEntity e;

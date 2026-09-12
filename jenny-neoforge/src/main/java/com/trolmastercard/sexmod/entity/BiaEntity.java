@@ -160,7 +160,11 @@ public class BiaEntity extends HumanoidGirlEntity implements Triggerable {
         }
 
         String[] var2 = new String[]{
-            this.entityData.get(GirlEntity.at) == 1 ? "action.names.strip" : "action.names.dressup", "action.names.talk", "action.names.headpat"
+            "action.names.anal",
+            "doggy",
+            this.entityData.get(GirlEntity.at) == 1 ? "action.names.strip" : "action.names.dressup",
+            "action.names.talk",
+            "action.names.headpat"
         };
         GirlEntity.a(var1, this, var2, true);
         return true;
@@ -293,12 +297,14 @@ public class BiaEntity extends HumanoidGirlEntity implements Triggerable {
             return com.trolmastercard.sexmod.entity.ScenePose.W;
         } else if (var1 == com.trolmastercard.sexmod.entity.ScenePose.W) {
             return com.trolmastercard.sexmod.entity.ScenePose.X;
+        } else if (var1 == com.trolmastercard.sexmod.entity.ScenePose.X) {
+            return com.trolmastercard.sexmod.entity.ScenePose.Y;
         } else if (var1 == com.trolmastercard.sexmod.entity.ScenePose.bv) {
             return com.trolmastercard.sexmod.entity.ScenePose.by;
         } else if (var1 == com.trolmastercard.sexmod.entity.ScenePose.by) {
             return com.trolmastercard.sexmod.entity.ScenePose.bw;
         } else {
-            return var1 == com.trolmastercard.sexmod.entity.ScenePose.bw ? com.trolmastercard.sexmod.entity.ScenePose.bx : null;
+            return var1 == com.trolmastercard.sexmod.entity.ScenePose.bw ? com.trolmastercard.sexmod.entity.ScenePose.bx : (var1 == com.trolmastercard.sexmod.entity.ScenePose.bx ? com.trolmastercard.sexmod.entity.ScenePose.bz : null);
         }
     }
 

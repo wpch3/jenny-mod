@@ -12,6 +12,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -28,6 +30,7 @@ public class AllieEntity extends GirlEntity {
     int f = 1;
     boolean g = false;
     boolean h = false;
+    int richTicks = -1;
     public static final EntityDataAccessor<ItemStack> i = SynchedEntityData.defineId(com.trolmastercard.sexmod.entity.AllieEntity.class, EntityDataSerializers.ITEM_STACK);
 
     public AllieEntity(EntityType<? extends PathfinderMob> var1, Level var2) {
@@ -50,6 +53,20 @@ public class AllieEntity extends GirlEntity {
     }
 
     @Override
+    public InteractionResult mobInteract(Player var1, InteractionHand var2) {
+        InteractionResult var3 = super.mobInteract(var1, var2);
+        if (var3 != InteractionResult.PASS) {
+            return var3;
+        }
+
+        if (this.level().isClientSide()) {
+            this.a(var1);
+        }
+
+        return InteractionResult.SUCCESS;
+    }
+
+    @Override
     protected void registerGoals() {
     }
 
@@ -58,7 +75,7 @@ public class AllieEntity extends GirlEntity {
         ServerLevel var1 = (ServerLevel)this.level();
         super.customServerAiStep();
         if (this.ai() == com.trolmastercard.sexmod.entity.ScenePose.a) {
-            this.discard();
+            this.c(com.trolmastercard.sexmod.entity.ScenePose.ao);
         }
 
         UUID var2 = this.al();
@@ -80,6 +97,18 @@ public class AllieEntity extends GirlEntity {
     @Override
     public void tick() {
         super.tick();
+        if (this.ai() == com.trolmastercard.sexmod.entity.ScenePose.ap || this.ai() == com.trolmastercard.sexmod.entity.ScenePose.aq) {
+            if (this.richTicks < 0) {
+                this.richTicks = 110;
+            } else if (--this.richTicks <= 0) {
+                this.richTicks = -1;
+                if (!this.level().isClientSide()) {
+                    this.c(com.trolmastercard.sexmod.entity.ScenePose.a);
+                }
+            }
+        } else {
+            this.richTicks = -1;
+        }
         if (this.b != 1.0F && this.b != -69.0F && this.b <= 0.0F) {
             if (this.aB()) {
             }

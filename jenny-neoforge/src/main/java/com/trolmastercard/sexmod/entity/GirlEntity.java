@@ -363,6 +363,24 @@ public abstract class GirlEntity extends PathfinderMob implements GeoEntity {
             this.ak = new Vec3(this.getX(), this.getY(), this.getZ());
         }
 
+        if (!this.level().isClientSide() && this.aw() && this.ai() == com.trolmastercard.sexmod.entity.ScenePose.a) {
+            try {
+                Player var1 = this.level().getPlayerByUUID(UUID.fromString((String)this.entityData.get(ao)));
+                if (var1 != null && var1.isAlive() && !var1.isSpectator()) {
+                    double var2 = this.distanceToSqr(var1);
+                    if (var2 > 144.0) {
+                        this.teleportTo(var1.getX(), var1.getY(), var1.getZ());
+                        this.getNavigation().stop();
+                    } else if (var2 > 9.0) {
+                        this.getNavigation().moveTo(var1, 1.0);
+                    } else {
+                        this.getNavigation().stop();
+                    }
+                }
+            } catch (IllegalArgumentException var4) {
+            }
+        }
+
         this.as();
     }
 
@@ -391,11 +409,26 @@ public abstract class GirlEntity extends PathfinderMob implements GeoEntity {
         }
 
         if (this.al() != null && this.ai().cp && this.level().getPlayerByUUID(this.al()) instanceof ServerPlayer var8) {
+            com.trolmastercard.sexmod.entity.ScenePose var12 = this.ai();
+            int var16 = switch (var12) {
+                case h, i, j, k, l, m, S, T, U, V, W, X, Y, bv, by, bw, bx, bz, cj -> -1;
+                case M, N, O, P, w, x, y, z, br, bs, bt, bA, bB, bC, bD, bE, aD, aE, aF, aG, aH, aK, aL, aM, aN, p, q, r, cl, cm, cn, cd -> 1;
+                default -> 0;
+            };
             double var10 = Math.toRadians(this.e_().floatValue());
-            double var4 = this.getX() - Math.sin(var10) * 0.8;
-            double var6 = this.getZ() + Math.cos(var10) * 0.8;
-            if (var8.distanceToSqr(var4, this.getY(), var6) > 0.04) {
-                var8.connection.teleport(var4, this.getY(), var6, var8.getYRot(), var8.getXRot());
+            double var13 = -Math.sin(var10);
+            double var14 = Math.cos(var10);
+            double var17 = var16 < 0 ? -0.9 : (var16 > 0 ? 0.35 : 0.8);
+            double var4 = this.getX() + var13 * var17;
+            double var6 = this.getZ() + var14 * var17;
+            float var18 = var16 < 0 ? this.e_() : this.e_() + 180.0F;
+            float var19 = Math.abs(var8.getYRot() - var18) % 360.0F;
+            if (var19 > 180.0F) {
+                var19 = 360.0F - var19;
+            }
+
+            if (var8.distanceToSqr(var4, this.getY(), var6) > 0.04 || var19 > 5.0F) {
+                var8.connection.teleport(var4, this.getY(), var6, var18, var8.getXRot());
                 var8.setDeltaMovement(Vec3.ZERO);
             }
         }
@@ -678,6 +711,22 @@ public abstract class GirlEntity extends PathfinderMob implements GeoEntity {
     }
 
     public void a(String var1, UUID var2) {
+        if (this.level().isClientSide()) {
+            if ("action.names.followme".equals(var1)) {
+                this.a("master", var2.toString());
+            } else if ("action.names.stopfollowme".equals(var1)) {
+                this.a("master", "");
+                this.i();
+            } else if ("action.names.gohome".equals(var1)) {
+                this.i();
+                com.trolmastercard.sexmod.client.ClientUtils.a(new com.trolmastercard.sexmod.network.SendCompanionHomePayload(this.ah().toString()));
+            } else if ("action.names.setnewhome".equals(var1)) {
+                net.minecraft.core.BlockPos var3 = this.blockPosition();
+                com.trolmastercard.sexmod.client.ClientUtils.a(new com.trolmastercard.sexmod.network.SetNpcHomePayload(this.ah().toString(), var3.getX(), var3.getY(), var3.getZ()));
+            } else if ("action.names.equipment".equals(var1)) {
+                com.trolmastercard.sexmod.client.ClientUtils.a(new com.trolmastercard.sexmod.network.RequestNpcActionPayload(this.ah().toString()));
+            }
+        }
     }
 
     protected abstract PlayState a(AnimationState<GirlEntity> var1);
@@ -749,6 +798,10 @@ public abstract class GirlEntity extends PathfinderMob implements GeoEntity {
         var1.add(this.aC = new AnimationController(this, "movement", 5, this::a));
         var1.add(this.aB = new AnimationController(this, "action", 0, var1x -> {
             if (this.ai() == com.trolmastercard.sexmod.entity.ScenePose.a) {
+                if (!this.isPassenger() && Math.abs(this.getX() - this.xOld) + Math.abs(this.getZ() - this.zOld) > 0.001) {
+                    return PlayState.STOP;
+                }
+
                 String var2 = this.h();
                 if (var2 != null) {
                     this.a(var2, true, var1x);

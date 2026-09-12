@@ -171,6 +171,7 @@ public class GoblinEntity extends VariantGirlEntity implements OwnableNpc {
 
     @Override
     public void a(String var1, UUID var2) {
+        super.a(var1, var2);
         if ("take ur stuff back".equals(var1)) {
             this.c(com.trolmastercard.sexmod.entity.ScenePose.aU);
         }
@@ -775,7 +776,7 @@ public class GoblinEntity extends VariantGirlEntity implements OwnableNpc {
             this.noPhysics = false;
             this.setNoGravity(false);
             if (!this.t && !(Boolean)this.entityData.get(r) && ((String)this.entityData.get(p)).equals("") && this.ai() == com.trolmastercard.sexmod.entity.ScenePose.a) {
-                this.discard();
+                this.entityData.set(p, "Wild");
             }
 
             this.B = true;

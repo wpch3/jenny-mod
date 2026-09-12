@@ -155,6 +155,15 @@ public class JennyEntity extends HumanoidGirlEntity implements Triggerable {
         if (!this.level().isClientSide()) {
             this.entityData.set(d, false);
         }
+
+        if (this.level().isClientSide() && this.tickCount % 400 == 0) {
+            com.trolmastercard.sexmod.entity.ScenePose var1 = this.ai();
+            if (var1 == com.trolmastercard.sexmod.entity.ScenePose.c || var1 == com.trolmastercard.sexmod.entity.ScenePose.f) {
+                this.d("jenny.dialogue.blowjobtext" + (this.getRandom().nextInt(8) + 1));
+            } else if (var1 == com.trolmastercard.sexmod.entity.ScenePose.k || var1 == com.trolmastercard.sexmod.entity.ScenePose.l) {
+                this.d("jenny.dialogue.doggytext" + (this.getRandom().nextInt(2) + 1));
+            }
+        }
     }
 
     @Override
@@ -213,6 +222,16 @@ public class JennyEntity extends HumanoidGirlEntity implements Triggerable {
     @Override
     public void c(com.trolmastercard.sexmod.entity.ScenePose var1) {
         com.trolmastercard.sexmod.entity.ScenePose var2 = this.ai();
+        if (this.level().isClientSide()
+            && (var1 == com.trolmastercard.sexmod.entity.ScenePose.b
+                || var1 == com.trolmastercard.sexmod.entity.ScenePose.j
+                || var1 == com.trolmastercard.sexmod.entity.ScenePose.G)) {
+            this.d(
+                var1 == com.trolmastercard.sexmod.entity.ScenePose.b
+                    ? "jenny.dialogue.giveblowjob"
+                    : (var1 == com.trolmastercard.sexmod.entity.ScenePose.j ? "jenny.dialogue.givesex" : "jenny.dialogue.givebooba")
+            );
+        }
         if (var2 != com.trolmastercard.sexmod.entity.ScenePose.m || var1 != com.trolmastercard.sexmod.entity.ScenePose.k && var1 != com.trolmastercard.sexmod.entity.ScenePose.l) {
             if (var2 != com.trolmastercard.sexmod.entity.ScenePose.e || var1 != com.trolmastercard.sexmod.entity.ScenePose.f && var1 != com.trolmastercard.sexmod.entity.ScenePose.c) {
                 if (var2 != com.trolmastercard.sexmod.entity.ScenePose.L || var1 != com.trolmastercard.sexmod.entity.ScenePose.I && var1 != com.trolmastercard.sexmod.entity.ScenePose.J) {

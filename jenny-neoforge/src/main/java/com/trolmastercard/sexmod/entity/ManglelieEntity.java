@@ -17,6 +17,8 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.phys.AABB;
@@ -347,6 +349,29 @@ public class ManglelieEntity extends GirlEntity implements Triggerable {
 
             super.c(var1);
         }
+    }
+
+    @Override
+    public InteractionResult mobInteract(Player var1, InteractionHand var2) {
+        InteractionResult var3 = super.mobInteract(var1, var2);
+        if (var3 != InteractionResult.PASS) {
+            return var3;
+        }
+
+        if (this.level().isClientSide()) {
+            this.a(var1);
+        }
+
+        return InteractionResult.SUCCESS;
+    }
+
+    public boolean a(Player var1) {
+        if (this.al() != null) {
+            return false;
+        }
+
+        com.trolmastercard.sexmod.entity.GirlEntity.a(var1, this, new String[0], true);
+        return true;
     }
 
     void w() {

@@ -442,7 +442,12 @@ public class EllieEntity extends HumanoidGirlEntity implements Triggerable {
         }
 
         if (this.level().isClientSide()) {
-            this.a(var1, false);
+            String var3 = (Integer)this.entityData.get(com.trolmastercard.sexmod.entity.GirlEntity.at) == 0
+                ? "action.names.dressup"
+                : "action.names.strip";
+            com.trolmastercard.sexmod.entity.GirlEntity.a(
+                var1, this, new String[]{"action.names.cowgirl", "action.names.missionary", "Face fuck", var3}, true
+            );
         }
 
         return InteractionResult.SUCCESS;

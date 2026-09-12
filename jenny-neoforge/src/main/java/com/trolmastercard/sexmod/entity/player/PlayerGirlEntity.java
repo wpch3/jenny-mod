@@ -229,6 +229,18 @@ public abstract class PlayerGirlEntity extends com.trolmastercard.sexmod.entity.
                     this.teleportTo(var3.getX(), var3.getY(), var3.getZ());
                 }
 
+                com.trolmastercard.sexmod.entity.GirlEntity sceneGirl = com.trolmastercard.sexmod.entity.GirlEntity.d(var3);
+                if (sceneGirl != null && sceneGirl.ai() != null && sceneGirl.ai().cp) {
+                    double faceDx = sceneGirl.getX() - this.getX();
+                    double faceDz = sceneGirl.getZ() - this.getZ();
+                    if (faceDx * faceDx + faceDz * faceDz > 1.0E-4) {
+                        float faceYaw = (float)(Math.atan2(-faceDx, faceDz) * 180.0 / Math.PI);
+                        this.setYRot(faceYaw);
+                        this.setYBodyRot(faceYaw);
+                        this.setYHeadRot(faceYaw);
+                    }
+                }
+
                 com.trolmastercard.sexmod.entity.ScenePose var5 = this.ai();
                 if (var5 == com.trolmastercard.sexmod.entity.ScenePose.a && var3.swinging) {
                     this.c(com.trolmastercard.sexmod.entity.ScenePose.A);

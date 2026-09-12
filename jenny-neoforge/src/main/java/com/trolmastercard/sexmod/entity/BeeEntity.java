@@ -185,7 +185,7 @@ public class BeeEntity extends ContainerGirlEntity {
             return super.mobInteract(var1, var2);
         }
 
-        if (this.level().isClientSide() && (Boolean)this.entityData.get(c)) {
+        if (this.level().isClientSide()) {
             this.b(var1);
         }
 
@@ -223,12 +223,16 @@ public class BeeEntity extends ContainerGirlEntity {
 
     @Override
     protected com.trolmastercard.sexmod.entity.ScenePose a_(com.trolmastercard.sexmod.entity.ScenePose var1) {
+        if (var1 == com.trolmastercard.sexmod.entity.ScenePose.ar) {
+            return com.trolmastercard.sexmod.entity.ScenePose.as;
+        }
+
         return var1 == com.trolmastercard.sexmod.entity.ScenePose.as ? com.trolmastercard.sexmod.entity.ScenePose.at : null;
     }
 
     @Override
     protected com.trolmastercard.sexmod.entity.ScenePose b(com.trolmastercard.sexmod.entity.ScenePose var1) {
-        return var1 != com.trolmastercard.sexmod.entity.ScenePose.at && var1 != com.trolmastercard.sexmod.entity.ScenePose.as ? null : com.trolmastercard.sexmod.entity.ScenePose.au;
+        return var1 != com.trolmastercard.sexmod.entity.ScenePose.at && var1 != com.trolmastercard.sexmod.entity.ScenePose.as && var1 != com.trolmastercard.sexmod.entity.ScenePose.ar ? null : com.trolmastercard.sexmod.entity.ScenePose.au;
     }
 
     @Override

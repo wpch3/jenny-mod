@@ -10,6 +10,8 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -87,10 +89,46 @@ public class SlimeGirlEntity extends GirlEntity {
 
     @Override
     protected com.trolmastercard.sexmod.entity.ScenePose a_(com.trolmastercard.sexmod.entity.ScenePose var1) {
-        if (var1 == com.trolmastercard.sexmod.entity.ScenePose.c) {
-            return com.trolmastercard.sexmod.entity.ScenePose.f;
+        return switch (var1) {
+            case b -> com.trolmastercard.sexmod.entity.ScenePose.c;
+            case c -> com.trolmastercard.sexmod.entity.ScenePose.f;
+            case f -> com.trolmastercard.sexmod.entity.ScenePose.e;
+            case h -> com.trolmastercard.sexmod.entity.ScenePose.j;
+            case j -> com.trolmastercard.sexmod.entity.ScenePose.k;
+            case k -> com.trolmastercard.sexmod.entity.ScenePose.l;
+            case l -> com.trolmastercard.sexmod.entity.ScenePose.m;
+            default -> null;
+        };
+    }
+
+    @Override
+    public InteractionResult mobInteract(Player var1, InteractionHand var2) {
+        InteractionResult var3 = super.mobInteract(var1, var2);
+        if (var3 != InteractionResult.PASS) {
+            return var3;
+        }
+
+        if (this.level().isClientSide()) {
+            this.a(var1);
+        }
+
+        return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public boolean a(Player var1) {
+        if (this.al() != null) {
+            return false;
+        } else if (this.aw() && !((String)this.entityData.get(GirlEntity.ao)).equals(com.trolmastercard.sexmod.client.ClientUtils.a().toString())) {
+            return false;
         } else {
-            return var1 == com.trolmastercard.sexmod.entity.ScenePose.k ? com.trolmastercard.sexmod.entity.ScenePose.l : null;
+            String[] var2 = new String[]{
+                "action.names.blowjob",
+                "action.names.doggy",
+                this.entityData.get(GirlEntity.at) == 1 ? "action.names.strip" : "action.names.dressup"
+            };
+            GirlEntity.a(var1, this, var2, true);
+            return true;
         }
     }
 

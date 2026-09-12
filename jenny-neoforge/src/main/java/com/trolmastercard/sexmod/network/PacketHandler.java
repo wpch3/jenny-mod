@@ -450,6 +450,9 @@ public final class PacketHandler {
             case "action.names.deepthroat" -> com.trolmastercard.sexmod.entity.ScenePose.ah;
             case "Reverse cowgirl" -> com.trolmastercard.sexmod.entity.ScenePose.bE;
             case "action.names.strip", "action.names.dressup" -> com.trolmastercard.sexmod.entity.ScenePose.n;
+            case "action.names.talk" -> com.trolmastercard.sexmod.entity.ScenePose.Q;
+            case "action.names.headpat" -> com.trolmastercard.sexmod.entity.ScenePose.af;
+            case "action.names.makemerichallie" -> com.trolmastercard.sexmod.entity.ScenePose.ap;
             default -> null;
         };
     }

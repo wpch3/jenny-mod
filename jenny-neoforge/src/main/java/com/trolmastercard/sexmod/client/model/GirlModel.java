@@ -59,6 +59,7 @@ public abstract class GirlModel<T extends com.trolmastercard.sexmod.entity.GirlE
     @Override
     public void setCustomAnimations(T var1, long var2, AnimationState<T> var4) {
         super.setCustomAnimations(var1, var2, var4);
+        this.resetStuckBones(var1, var5);
         AnimationProcessor<T> var5 = this.getAnimationProcessor();
         boolean var6 = this.e(var1);
         this.a(var5, "rightArmAlex", var6);
@@ -92,6 +93,92 @@ public abstract class GirlModel<T extends com.trolmastercard.sexmod.entity.GirlE
         }
         this.a(var1, var5, var4);
         this.applyOutfitVisibility(var1, var5);
+        this.b(var1, var5, var4);
+    }
+
+
+    protected static final String[] STUCK_BONES_BASE = new String[] {"neck", "footR", "footL", "legL2", "legR2", "torso", "hip"};
+    private static final String[] STUCK_BONES_EXT = new String[] {"head", "shinR", "shinL", "upperBody", "chest", "body"};
+
+    /**
+     * Bone names zeroed by resetStuckBones. Bee overrides to base-only since
+     * her hunched body/head/shins carry static rotations by design.
+     */
+    protected String[] stuckBoneNames() {
+        String[] all = new String[STUCK_BONES_BASE.length + STUCK_BONES_EXT.length];
+        System.arraycopy(STUCK_BONES_BASE, 0, all, 0, STUCK_BONES_BASE.length);
+        System.arraycopy(STUCK_BONES_EXT, 0, all, STUCK_BONES_BASE.length, STUCK_BONES_EXT.length);
+        return all;
+    }
+
+    /**
+     * Zeroes structural bones every frame while idle/walking (pose a, on
+     * ground). Scene animations rotate the spine/head/shins but every
+     * idle/walk loop is authored all-zero and nothing ever resets bones, so
+     * finished scenes (or poses leaking through Geckolib's shared baked
+     * bones) leave girls tilted. Only bones verified zero-static are touched,
+     * so this is lossless; runs before head-tracking and the walk below.
+     */
+    private void resetStuckBones(T girl, AnimationProcessor<T> processor) {
+        if (girl.ai() == null || girl.ai() != com.trolmastercard.sexmod.entity.ScenePose.a || girl.isPassenger() || !girl.onGround()) {
+            return;
+        }
+        for (String name : this.stuckBoneNames()) {
+            GeoBone bone = processor.getBone(name);
+            if (bone == null) {
+                continue;
+            }
+            bone.setRotX(0.0F);
+            bone.setRotY(0.0F);
+            bone.setRotZ(0.0F);
+        }
+    }
+
+    private void b(T var1, AnimationProcessor<T> var2, AnimationState<T> var3) {
+        if (var1.ai() == null || var1.ai() != com.trolmastercard.sexmod.entity.ScenePose.a || var1.isPassenger() || !var1.onGround()) {
+            return;
+        }
+
+        if (var1 instanceof com.trolmastercard.sexmod.entity.player.PlayerGirlEntity var4) {
+            net.minecraft.world.entity.player.Player var5 = var4.q();
+            com.trolmastercard.sexmod.entity.GirlEntity var6 = var5 == null ? null : com.trolmastercard.sexmod.entity.GirlEntity.d(var5);
+            if (var6 != null && var6.ai() != null && var6.ai().cp) {
+                return;
+            }
+        }
+
+        double var7 = Math.abs(var1.getX() - var1.xOld) + Math.abs(var1.getZ() - var1.zOld);
+        if (var7 <= 0.001) {
+            return;
+        }
+
+        float var8 = var1.walkAnimation.position();
+        float var9 = Math.min(var1.walkAnimation.speed(), 1.0F);
+        if (var9 <= 0.01F) {
+            return;
+        }
+
+        float var10 = var8 * 0.6662F;
+        float var11 = var9 * 0.9F;
+        GeoBone var12 = var2.getBone("legR");
+        if (var12 != null) {
+            var12.setRotX((float)Math.cos(var10) * var11);
+        }
+
+        GeoBone var13 = var2.getBone("legL");
+        if (var13 != null) {
+            var13.setRotX((float)Math.cos(var10 + 3.1415927F) * var11);
+        }
+
+        GeoBone var14 = var2.getBone("armR");
+        if (var14 != null) {
+            var14.setRotX((float)Math.cos(var10 + 3.1415927F) * var11 * 0.7F);
+        }
+
+        GeoBone var15 = var2.getBone("armL");
+        if (var15 != null) {
+            var15.setRotX((float)Math.cos(var10) * var11 * 0.7F);
+        }
     }
 
     private void a(AnimationProcessor<T> var1, String var2, boolean var3) {
