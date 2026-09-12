@@ -98,6 +98,7 @@ public abstract class GirlEntity extends PathfinderMob implements GeoEntity {
     private com.trolmastercard.sexmod.entity.ScenePose d;
     private int e;
     private int f = -1;
+    private int stripTicks = -1;
     private int g = 1;
 
     public GirlEntity.a ag() {
@@ -370,6 +371,14 @@ public abstract class GirlEntity extends PathfinderMob implements GeoEntity {
         this.at();
         if (!this.level().isClientSide()) {
             this.b();
+            if (this.ai() == com.trolmastercard.sexmod.entity.ScenePose.n && this.d == null) {
+                if (++this.stripTicks > 100) {
+                    this.stripTicks = -1;
+                    this.c(com.trolmastercard.sexmod.entity.ScenePose.a);
+                }
+            } else {
+                this.stripTicks = -1;
+            }
         }
     }
 
@@ -1006,8 +1015,7 @@ public abstract class GirlEntity extends PathfinderMob implements GeoEntity {
 
     @Nullable
     protected SoundEvent getAmbientSound() {
-        this.a("whopa", false);
-        return this.level().getRandom().nextFloat() < 0.125F ? com.trolmastercard.sexmod.registry.ModSounds.b("misc.fart") : null;
+        return null;
     }
 
     public Vec3 e(String var1) {

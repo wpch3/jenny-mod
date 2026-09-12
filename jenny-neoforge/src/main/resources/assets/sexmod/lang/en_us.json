@@ -12,7 +12,6 @@
   "entity.sexmod.kobold": "Kobold",
   "entity.sexmod.custom_model": "Custom model",
   "entity.sexmod.friendly_slime": "Friendly slime",
-  "entity.sexmod.pyrocinical": "Pyrocinical",
 
   "itemGroup.sexmod": "Jenny Mod",
   "item.sexmod.jenny_spawn_egg": "Jenny Spawn Egg",
@@ -28,7 +27,7 @@
   "item.sexmod.goblin_spawn_egg": "Goblin Spawn Egg",
   "item.sexmod.custom_model_spawn_egg": "Custom Model Spawn Egg",
   "item.sexmod.friendly_slime_spawn_egg": "Friendly Slime Spawn Egg",
-  "item.sexmod.pyrocinical_spawn_egg": "Pyrocinical Spawn Egg",
+
   "item.sexmod.luna_rod": "Luna's Rod",
   "item.sexmod.kobold_egg_item": "Kobold Egg",
   "item.sexmod.galath_coin": "Galath Coin",

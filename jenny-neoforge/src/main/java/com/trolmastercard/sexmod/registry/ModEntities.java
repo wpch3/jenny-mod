@@ -140,14 +140,6 @@ public final class ModEntities {
             .updateInterval(3)
             .build("friendly_slime")
     );
-    public static final DeferredHolder<EntityType<?>, EntityType<com.trolmastercard.sexmod.entity.PyrocinicalEntity>> y = a.register(
-        "pyrocinical",
-        () -> Builder.of(com.trolmastercard.sexmod.entity.PyrocinicalEntity::new, MobCategory.AMBIENT)
-            .sized(0.6F, 1.8F)
-            .clientTrackingRange(64)
-            .updateInterval(3)
-            .build("pyrocinical")
-    );
     public static final DeferredHolder<EntityType<?>, EntityType<com.trolmastercard.sexmod.entity.LunaHookEntity>> z = a.register(
         "luna_hook",
         () -> Builder.<com.trolmastercard.sexmod.entity.LunaHookEntity>of(com.trolmastercard.sexmod.entity.LunaHookEntity::new, MobCategory.MISC).sized(0.25F, 0.25F).clientTrackingRange(64).updateInterval(3).build("luna_hook")
@@ -189,7 +181,7 @@ public final class ModEntities {
         var0.put((EntityType)v.get(), com.trolmastercard.sexmod.entity.GirlEntity.aq().build());
         var0.put((EntityType)w.get(), LivingEntity.createLivingAttributes().build());
         var0.put((EntityType)x.get(), com.trolmastercard.sexmod.entity.FriendlySlimeEntity.a().build());
-        var0.put((EntityType)y.get(), com.trolmastercard.sexmod.entity.PyrocinicalEntity.a().build());
+
         var0.put((EntityType)A.get(), com.trolmastercard.sexmod.entity.EnergyBallEntity.a().build());
         var0.put((EntityType)B.get(), com.trolmastercard.sexmod.entity.KoboldEggEntity.a().build());
     }

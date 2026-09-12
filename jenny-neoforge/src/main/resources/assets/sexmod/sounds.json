@@ -3979,16 +3979,7 @@
       }
     ]
   },
-  "misc.pyro.pyro0": {
-    "category": "entity",
-    "subtitle": "pyro",
-    "sounds": [
-      {
-        "name": "sexmod:misc/pyro/pyro0",
-        "stream": true
-      }
-    ]
-  },
+
   "misc.scream.scream0": {
     "category": "entity",
     "subtitle": "scream",

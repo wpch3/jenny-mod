@@ -4,7 +4,6 @@ import com.trolmastercard.sexmod.client.renderer.PlayerJennyRenderer;
 import com.trolmastercard.sexmod.client.renderer.PlayerKoboldRenderer;
 import com.trolmastercard.sexmod.client.renderer.PlayerLunaRenderer;
 import com.trolmastercard.sexmod.client.renderer.PlayerSlimeRenderer;
-import com.trolmastercard.sexmod.client.renderer.PyrocinicalRenderer;
 import com.trolmastercard.sexmod.client.renderer.SlimeGirlRenderer;
 import com.trolmastercard.sexmod.client.renderer.GoblinRenderer;
 import com.trolmastercard.sexmod.client.renderer.JennyRenderer;
@@ -60,7 +59,7 @@ public final class ClientSetup {
         var0.registerEntityRenderer((EntityType)com.trolmastercard.sexmod.registry.ModEntities.v.get(), GoblinRenderer::new);
         var0.registerEntityRenderer((EntityType)com.trolmastercard.sexmod.registry.ModEntities.w.get(), com.trolmastercard.sexmod.client.renderer.CustomModelEntityRenderer::new);
         var0.registerEntityRenderer((EntityType)com.trolmastercard.sexmod.registry.ModEntities.x.get(), com.trolmastercard.sexmod.client.renderer.FriendlySlimeRenderer::new);
-        var0.registerEntityRenderer((EntityType)com.trolmastercard.sexmod.registry.ModEntities.y.get(), PyrocinicalRenderer::new);
+
         var0.registerEntityRenderer((EntityType)com.trolmastercard.sexmod.registry.ModEntities.z.get(), LunaHookRenderer::new);
         var0.registerEntityRenderer((EntityType)com.trolmastercard.sexmod.registry.ModEntities.A.get(), com.trolmastercard.sexmod.client.renderer.EnergyBallRenderer::new);
         var0.registerEntityRenderer((EntityType)com.trolmastercard.sexmod.registry.ModEntities.B.get(), KoboldEggRenderer::new);

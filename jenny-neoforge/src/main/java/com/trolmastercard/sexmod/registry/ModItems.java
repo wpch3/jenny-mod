@@ -34,7 +34,7 @@ public final class ModItems {
     public static final DeferredItem<SpawnEggItem> m = a("goblin", com.trolmastercard.sexmod.registry.ModEntities.v);
     public static final DeferredItem<SpawnEggItem> n = a("custom_model", com.trolmastercard.sexmod.registry.ModEntities.w);
     public static final DeferredItem<SpawnEggItem> o = a("friendly_slime", com.trolmastercard.sexmod.registry.ModEntities.x);
-    public static final DeferredItem<SpawnEggItem> p = a("pyrocinical", com.trolmastercard.sexmod.registry.ModEntities.y);
+
     public static final DeferredItem<com.trolmastercard.sexmod.item.LunaRodItem> q = a.registerItem(
         "luna_rod", com.trolmastercard.sexmod.item.LunaRodItem::new, new Properties().durability(64)
     );
@@ -52,7 +52,7 @@ public final class ModItems {
         "dragon_staff", com.trolmastercard.sexmod.item.KoboldStaffItem::new, new Properties().stacksTo(1)
     );
     public static final DeferredItem<NpcEditorWandItem> w = a.registerItem("npc_editor_wand", NpcEditorWandItem::new, new Properties().stacksTo(1));
-    private static final List<DeferredItem<SpawnEggItem>> y = List.of(c, d, e, f, g, h, i, j, k, l, m, n, o, p);
+    private static final List<DeferredItem<SpawnEggItem>> y = List.of(c, d, e, f, g, h, i, j, k, l, m, n, o);
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> x = b.register(
         "sexmod",
         () -> CreativeModeTab.builder()

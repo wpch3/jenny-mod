@@ -53,7 +53,7 @@ public final class NpcSpawner {
         var0.add(new com.trolmastercard.sexmod.server.NpcSpawner.b("goblin", var0x -> ((EntityType)com.trolmastercard.sexmod.registry.ModEntities.v.get()).create(var0x)));
         var0.add(new com.trolmastercard.sexmod.server.NpcSpawner.b("custom_model", var0x -> ((EntityType)com.trolmastercard.sexmod.registry.ModEntities.w.get()).create(var0x)));
         var0.add(new com.trolmastercard.sexmod.server.NpcSpawner.b("friendly_slime", var0x -> ((EntityType)com.trolmastercard.sexmod.registry.ModEntities.x.get()).create(var0x)));
-        var0.add(new com.trolmastercard.sexmod.server.NpcSpawner.b("pyrocinical", var0x -> ((EntityType)com.trolmastercard.sexmod.registry.ModEntities.y.get()).create(var0x)));
+
         return var0;
     }
 
