@@ -691,7 +691,7 @@ public class TribeData {
     }
 
     public static class b extends SavedData {
-        public static final Codec<TribeData.b> a = TribeData.b.a.a.listOf().xmap(var0 -> {
+        public static final Codec<TribeData.b> p = TribeData.b.a.a.listOf().xmap(var0 -> {
             for (TribeData.b.a var2 : var0) {
                 com.trolmastercard.sexmod.server.TribeData.a(var2.b, var2.c);
                 if (var2.d.isPresent()) {
@@ -724,12 +724,12 @@ public class TribeData {
         });
 
         public CompoundTag save(CompoundTag var1, Provider var2) {
-            a.encodeStart(NbtOps.INSTANCE, this).result().ifPresent(var1x -> var1.put("tribes", var1x));
+            p.encodeStart(NbtOps.INSTANCE, this).result().ifPresent(var1x -> var1.put("tribes", var1x));
             return var1;
         }
 
         public static TribeData.b a(CompoundTag var0, Provider var1) {
-            return a.parse(NbtOps.INSTANCE, var0.get("tribes")).result().orElseGet(TribeData.b::new);
+            return p.parse(NbtOps.INSTANCE, var0.get("tribes")).result().orElseGet(TribeData.b::new);
         }
 
         public static final class a {
