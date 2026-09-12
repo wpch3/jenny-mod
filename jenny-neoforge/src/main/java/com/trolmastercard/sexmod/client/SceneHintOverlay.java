@@ -60,7 +60,7 @@ public final class SceneHintOverlay {
         }
 
         String var1 = var0.name();
-        return !var1.startsWith("START") && !var1.endsWith("START") ? !var1.endsWith("CUM") && var0 != com.trolmastercard.sexmod.entity.ScenePose.e : false;
+        return !var1.startsWith("START") && !var1.endsWith("START") ? !com.trolmastercard.sexmod.entity.ScenePose.isCumPose(var0) : false;
     }
 
     private SceneHintOverlay() {

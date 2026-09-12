@@ -281,4 +281,36 @@ public enum ScenePose {
 
         return false;
     }
+
+    public static boolean isCumPose(ScenePose var0) {
+        return a(
+            var0,
+            e,
+            m,
+            L,
+            au,
+            ak,
+            bD,
+            ac,
+            aN,
+            aC,
+            aH,
+            Y,
+            bz,
+            X,
+            z,
+            P,
+            bt,
+            bV,
+            bS,
+            cn,
+            bR,
+            ck,
+            bh,
+            bi,
+            bj,
+            bq,
+            ch
+        );
+    }
 }

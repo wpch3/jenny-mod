@@ -393,7 +393,7 @@ public abstract class GirlEntity extends PathfinderMob implements GeoEntity {
 
         if (!this.level().isClientSide()) {
             com.trolmastercard.sexmod.entity.ScenePose var9 = this.ai();
-            boolean var11 = var9.name().endsWith("CUM") || var9 == com.trolmastercard.sexmod.entity.ScenePose.e;
+            boolean var11 = var9.name().endsWith("CUM") || com.trolmastercard.sexmod.entity.ScenePose.isCumPose(var9);
             if (this.al() == null || !var9.cp || !var11) {
                 this.f = -1;
             } else if (this.f < 0) {
@@ -1001,7 +1001,7 @@ public abstract class GirlEntity extends PathfinderMob implements GeoEntity {
     @Nullable
     protected SoundEvent getAmbientSound() {
         this.a("whopa", false);
-        return com.trolmastercard.sexmod.registry.ModSounds.b("misc.fart");
+        return this.level().getRandom().nextFloat() < 0.125F ? com.trolmastercard.sexmod.registry.ModSounds.b("misc.fart") : null;
     }
 
     public Vec3 e(String var1) {
